@@ -1,7 +1,8 @@
 import express from "express";
+import { Transaction } from "../models/transactionsModel.js";
 const router = express.Router();
 
-router.post("/transactions", async (request, response) => {
+router.post("/", async (request, response) => {
   try {
     if (
       !request.body.amount ||
@@ -37,7 +38,7 @@ router.post("/transactions", async (request, response) => {
 
 //get transactions
 
-router.get("/transactions", async (request, response) => {
+router.get("/", async (request, response) => {
   try {
     const transactions = await Transaction.find({});
     return response.status(200).json({
@@ -51,7 +52,7 @@ router.get("/transactions", async (request, response) => {
 });
 
 //get transaction by id
-router.get("/transactions/:id", async (request, response) => {
+router.get("/:id", async (request, response) => {
   const { id } = request.params;
   try {
     const transactions = await Transaction.findById(id);
@@ -63,7 +64,7 @@ router.get("/transactions/:id", async (request, response) => {
 });
 
 //update transaction by id
-router.put("/transactions/:id", async (request, response) => {
+router.put("/:id", async (request, response) => {
   try {
     if (
       !request.body.amount ||
