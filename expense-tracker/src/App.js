@@ -11,7 +11,7 @@ function App() {
   return (
     <Router>
       <Switch>
-        <Route path="/home" component={Home}></Route>
+        <Route path="/finz" component={Home}></Route>
       </Switch>
     </Router>
   );
