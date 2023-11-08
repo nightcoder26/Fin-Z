@@ -19,4 +19,6 @@ MongoClient.connect(process.env.DB_URI, {
     app.listen(port, () => {
       console.log("Listening to port");
     });
+
+    app.locals.client = client;
   });
