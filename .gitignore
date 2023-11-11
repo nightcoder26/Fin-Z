@@ -1,2 +1,5 @@
 backend/node_modules
 expense-tracker/node_modules
+frontend2/node_modules
+frontend/node_modules
+backend/.env
