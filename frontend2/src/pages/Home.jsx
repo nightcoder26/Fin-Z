@@ -9,14 +9,30 @@ const Home = () => {
   //   const data = response.json();
   //   setData(data);
   // }, []);
+
+  //total income and expense
   const [totals, setTotals] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:4000/api/totals", {
+    fetch("http://localhost:4000/api/home/totals", {
       method: "GET",
     })
       .then((response) => response.json()) // Corrected this line
       .then((data) => {
         setTotals(data);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+  }, []);
+  //total expense for a month, week and day
+  const [expense, setExpense] = useState([]);
+  useEffect(() => {
+    fetch("http://localhost:4000/api/home/expense", {
+      method: "GET",
+    })
+      .then((response) => response.json()) // Corrected this line
+      .then((data) => {
+        setExpense(data);
       })
       .catch((error) => {
         console.error("Error fetching data:", error);
@@ -39,6 +55,8 @@ const Home = () => {
       break;
     }
   }
+
+  //total expense for a month
 
   const balance = totalIncome - totalExpense;
 
