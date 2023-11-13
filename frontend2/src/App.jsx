@@ -15,7 +15,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/year" element={<Year />} />
         <Route path="/daily" element={<Daily />} />
-        <Route path="/monthly" element={<Month />} />
+        <Route path="/month" element={<Month />} />
         <Route path="/new-entry" element={<NewEntry />} />
         <Route path="/category" element={<CatWise />} />
       </Routes>
