@@ -16,7 +16,7 @@ app.use(
 
 app.use(cors());
 
-app.use("/api", homeRoute);
+app.use("/api/home", homeRoute);
 app.listen(PORT, () => {
   connectDatabase();
   console.log(`Server is running on port ${PORT}`);
