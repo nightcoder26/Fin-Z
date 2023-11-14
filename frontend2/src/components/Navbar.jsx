@@ -10,7 +10,7 @@ const Navbar = (props) => {
           <img
             src="https://www.freeiconspng.com/uploads/empty-gold-coin-icon-19.jpg"
             alt="Empty Gold Coin Icon"
-            className="logo"
+            className="logo-img"
           />
         </div>
       </nav>
