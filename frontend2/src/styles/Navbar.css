@@ -1,4 +1,8 @@
-.navbar-div {
-  display: flex;
-  justify-content: space-between;
+.nav{
+  color:black ;
+  padding-bottom: 1000px;
+  padding-right: 1000px;
+  font-size: small;
 }
+
+
