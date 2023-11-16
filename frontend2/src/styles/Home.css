@@ -3,15 +3,6 @@
   height: 100vh;
 }
 
-.sidebar {
-  /* width: 25%; */
-  width: 45%;
-  min-width: 200px;
-
-  /* padding: 20px; */
-  /* box-sizing: border-box;*/
-}
-
 .content {
   flex: 1;
   padding-left: 0rem;
