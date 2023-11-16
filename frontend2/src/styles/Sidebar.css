@@ -4,12 +4,11 @@ body {
 }
 
 #sidebar {
-  width: 18%;
-  height: 100%;
+  height: 100vh;
   background-color: rgb(155, 153, 153);
-  position: fixed;
-  top: 0;
-  left: 0;
+  /* position: fixed; */
+  /* top: 0;
+  left: 0; */
   border: 1px solid white;
 }
 
@@ -56,10 +55,10 @@ body {
   background-color: rgb(145, 138, 138);
 }
 
-#main-content {
+/* #main-content {
   margin-left: 250px;
-}
-
+} */
+/* 
 @media (max-width: 768px) {
   #sidebar {
     position: static;
@@ -70,7 +69,7 @@ body {
   #main-content {
     margin-left: 0;
   }
-}
+} */
 
 .sidebar-link.active {
   background-color: lightgray;

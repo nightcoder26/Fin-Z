@@ -6,6 +6,9 @@
 .logo-img {
   height: 6em;
   padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+}
+
+.navbar {
+  background-color: aquamarine;
+  width: 100vh;
 }

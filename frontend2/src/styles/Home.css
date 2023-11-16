@@ -1,19 +1,21 @@
-/* .container {
-  /* display: flex;
-  justify-content: center; */
-/* margin: auto;
-  padding: 0; */
-
-/* .sidebar-1 {
-  align-items: center;
-  padding: auto;
-} */
-
 .container {
+  display: flex;
+  height: 100vh;
 }
 
-.sidebar-1 {
+.sidebar {
+  /* width: 25%; */
+  width: 45%;
+  min-width: 200px;
+
+  /* padding: 20px; */
+  /* box-sizing: border-box;*/
 }
 
-.div2 {
+.content {
+  flex: 1;
+  padding-left: 0rem;
+  padding-top: 0;
+  margin: 0;
+  /* box-sizing: border-box; */
 }
