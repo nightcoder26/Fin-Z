@@ -1,6 +1,8 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import Navbar from "../components/Navbar.jsx";
+import Sidebar from "../components/Sidebar.jsx";
+import "../styles/Home.css";
 const Home = () => {
   // const data = ["a", "b"];
   // const [data, setData] = useState([]);
@@ -61,14 +63,21 @@ const Home = () => {
   const balance = totalIncome - totalExpense;
 
   return (
-    <div>
+    <div className="container">
       {/* <Sidebar/> sidebar goes here 
           each page with 3 components a sidebar, navbar and main content, main content has other components
       */}
-      <Navbar pageName="Overview" />
-      <h1>{totalExpense}</h1>
-      <h1>{totalIncome}</h1>
-      <h1>{balance}</h1>
+      <div className="sidebar-1">
+        <Sidebar />
+      </div>
+      <div className="div2">
+        <Navbar pageName="Overview" className="nav-1" />
+        <div className="main-content">
+          <h1>{totalExpense}</h1>
+          <h1>{totalIncome}</h1>
+          <h1>{balance}</h1>
+        </div>
+      </div>
     </div>
   );
 };

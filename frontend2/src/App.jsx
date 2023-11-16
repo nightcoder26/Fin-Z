@@ -7,7 +7,6 @@ import Daily from "./pages/Daily.jsx";
 import NewEntry from "./pages/NewEntry.jsx";
 import CatWise from "./pages/CatWise.jsx";
 import "./App.css";
-
 function App() {
   return (
     <BrowserRouter>
