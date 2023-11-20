@@ -23,33 +23,53 @@ router.get("/totals", async (req, res) => {
 
 router.get("/expense", async (req, res) => {
   try {
-    const date = new Date();
-    const date_num = date.getDate();
-    const day = date.getDay();
-    const month = date.getMonth();
-    const year = date.getFullYear();
-    const startMonth = new Date(Date.UTC(year, month, 1, 0, 0, 0));
-    const endMonth = new Date(Date.UTC(year, month + 1, 0, 23, 59, 59));
+    // const date = new Date();
+    // const date_num = date.getDate();
+    // const day = date.getDay();
+    // const month = date.getMonth();
+    // const year = date.getFullYear();
+    // const startMonth = new Date(Date(year, month, 1, 0, 0, 0));
+    // const endMonth = new Date(Date(year, month + 1, 0, 23, 59, 59));
 
-    const startWeek = new Date(Date.UTC(year, month, date_num - day, 0, 0, 0)); // starts from sunday to the current day
-    const endWeek = new Date(
-      Date.IST(year, month, date_num + (6 - day), 23, 59, 59)
-    );
+    // const startWeek = new Date(
+    //   Date(year, month, date.getDate() - date.getDay(), 0, 0, 0)
+    // );
+    // const endWeek = new Date(
+    //   Date(year, month, date.getDate() + (6 - date.getDay()), 23, 59, 59)
+    // );
+
     // to do from the same day last week to this day
     // const startWeek = new Date(year, month, date_num - 7);
     //const endWeek = new Date()
 
+    // const startDay = new Date(Date(year, month, date_num, 0, 0, 0));
+    // const endDay = new Date(Date(year, month, date_num, 23, 59, 59));
+
+    const date = new Date();
+    const date_num = date.getUTCDate();
+    const day = date.getUTCDay();
+    const month = date.getUTCMonth();
+    const year = date.getUTCFullYear();
+
+    const startMonth = new Date(Date.UTC(year, month, 1, 0, 0, 0));
+    const endMonth = new Date(Date.UTC(year, month + 1, 0, 23, 59, 59));
+
+    const startWeek = new Date(
+      Date.UTC(year, month, date.getUTCDate() - date.getUTCDay(), 0, 0, 0)
+    );
+    const endWeek = new Date(
+      Date.UTC(
+        year,
+        month,
+        date.getUTCDate() + (6 - date.getUTCDay()),
+        23,
+        59,
+        59
+      )
+    );
+
     const startDay = new Date(Date.UTC(year, month, date_num, 0, 0, 0));
     const endDay = new Date(Date.UTC(year, month, date_num, 23, 59, 59));
-
-    // console.log("Start Month:", startMonth);
-    // console.log("End Month:", endMonth);
-    // console.log("Start Week:", startWeek);
-    // console.log("End Week:", endWeek);
-    // console.log("Start Day:", startDay);
-    // console.log("End Day:", endDay);
-
-    // db.transactions.findOne({ type: "expense" });
 
     const expensesMonth = await Transaction.aggregate([
       {
@@ -100,21 +120,6 @@ router.get("/expense", async (req, res) => {
         },
       },
     ]);
-    // console.log("Expenses Month:", expensesMonth);
-
-    // received all expenses for this month , week and day
-
-    //sending this data
-    console.log("Start Month:", startMonth);
-    console.log("End Month:", endMonth);
-    console.log("Start Week:", startWeek);
-    console.log("End Week:", endWeek);
-    console.log("Start Day:", startDay);
-    console.log("End Day:", endDay);
-
-    console.log("Expenses Month:", expensesMonth);
-    console.log("Expense Week:", expenseWeek);
-    console.log("Expense Day:", expenseDay);
 
     res.json({
       expensesMonth,
