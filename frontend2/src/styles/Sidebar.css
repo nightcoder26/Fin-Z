@@ -5,15 +5,15 @@ body {
 
 #sidebar {
   height: 100vh;
-  background-color: rgb(155, 153, 153);
+  background-color: #a4c3a3;
   /* position: fixed; */
   /* top: 0;
   left: 0; */
-  border: 1px solid white;
+  border: 1px solid #b0d4b8;
 }
 
 #sidebar h1 {
-  width: 80%;
+  /* width: 80%; */
   text-align: center;
   padding: 30px 0 10px 0;
   margin: 0 auto;

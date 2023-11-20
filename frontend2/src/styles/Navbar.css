@@ -1,6 +1,10 @@
 .navbar-div {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  width: 1365px;
+  background-color: #a4c3a3;
+  border: 1px solid #b0d4b8;
+  height: 8rem;
 }
 
 .logo-img {
@@ -8,7 +12,10 @@
   padding: 1.5em;
 }
 
-.navbar {
-  background-color: aquamarine;
-  width: 100vh;
-}
+/* .navbar {
+  display: flex;
+  justify-content: space-between;
+  width: 0px;
+  background-color: #a4c3a3;
+  border: 1px solid #b0d4b8;
+} */
