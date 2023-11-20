@@ -66,9 +66,11 @@ const Home = () => {
           each page with 3 components a sidebar, navbar and main content, main content has other components
       */}
       <Navbar pageName="Overview" />
-      <h1>{totalExpense}</h1>
-      <h1>{totalIncome}</h1>
-      <h1>{balance}</h1>
+      <div className="container">
+    <div className="box1"><h1>{totalExpense}</h1></div>
+    <div className="box2"><h1>{totalIncome}</h1></div>
+    <div className="box3"><h1>{balance}</h1></div>
+    </div>
     </div>
   );
 };

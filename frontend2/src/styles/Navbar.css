@@ -1,8 +1,41 @@
 .nav{
-  color:black ;
-  padding-bottom: 1000px;
-  padding-right: 1000px;
-  font-size: small;
+  display: flex;
+  background-color: mediumpurple;
+  width:100em;
 }
+.nav a{
+  color: black;
+  padding-left: 2em;
+}
+h2{
+  font-size:xx-large;
+}
+.box{
+  padding-bottom:40em;
+
+}
+.container{
+  z-index: 10; 
+  position: absolute;
+  top: 8em;
+  left: 0;
+  display: flex;
+}
+.box1{
+  width:15em;
+  background-color: aliceblue;
+}
+.box2{
+  width:15em;
+  background-color: aliceblue;
+  padding-left: 2em;
+}
+.box3{
+  width:15em;
+  background-color: aliceblue;
+}
+
+
+
 
 
