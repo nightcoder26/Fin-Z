@@ -79,10 +79,9 @@ const Home = () => {
       </div>
       <div className="content child">
         <Navbar pageName="Overview" className="nav-1" />
-        {/* <h1>{totalExpense}</h1>
+        <h1>{totalExpense}</h1>
         <h1>{totalIncome}</h1>
         <h1>{balance}</h1>
-         */}
       </div>
     </div>
   );
