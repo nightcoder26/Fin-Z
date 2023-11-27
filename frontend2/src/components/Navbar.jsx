@@ -6,12 +6,6 @@ const Navbar = (props) => {
       <nav className="navbar">
         <div className="navbar-div">
           <h1>{props.pageName}</h1>
-
-          <img
-            src="https://www.freeiconspng.com/uploads/empty-gold-coin-icon-19.jpg"
-            alt="Empty Gold Coin Icon"
-            className="logo-img"
-          />
         </div>
       </nav>
     </div>

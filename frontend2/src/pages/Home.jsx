@@ -79,10 +79,26 @@ const Home = () => {
       </div>
       <div className="content child">
         <Navbar pageName="Overview" className="nav-1" />
-        <h1>{totalExpense}</h1>
-        <h1>{totalIncome}</h1>
-        <h1>{balance}</h1>
-      </div>
+        <div className="box">
+        <div className="box1"><h1>{totalExpense}</h1></div>
+        <div className="box2"><h1>{totalIncome}</h1></div>
+        <div className="box3"><h1>{balance}</h1></div>
+        </div>
+        
+        <h2 className="heading">Expenses</h2>
+        <div className="box-2nd">
+        <div className="box4"><h2>1 </h2></div>
+        <div className="box5"><h2>2</h2></div>
+        <div className="box6"><h2>3</h2></div>
+        </div>
+        <h2 className="heading">Income</h2>
+        <div className="box-3rd">
+        <div className="box7"><h2>1 </h2></div>
+        <div className="box8"><h2>2</h2></div>
+        <div className="box9"><h2>3</h2></div>
+        </div>
+            
+        </div>
     </div>
   );
 };
