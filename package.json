@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "cors": "^2.8.5",
+    "jquery-ui": "^1.13.2",
     "mongoose": "^8.0.0"
   }
 }

@@ -1,22 +1,18 @@
-import React from "react";
-import Navbar from "../components/Navbar.jsx";
-import Sidebar from "../components/Sidebar.jsx";
+import React, { useState } from 'react';
+import $ from 'jquery';
+import 'jquery-ui/ui/widgets/datepicker';
 
-import { useState } from "react";
-import $ from "jquery";
-import "jquery-ui/ui/widgets/datepicker";
-
-function Month() {
-  const [selectedDate, setSelectedDate] = useState("");
+function WeekPage() {
+  const [selectedDate, setSelectedDate] = useState('');
 
   $(function () {
     $("#datepicker").datepicker({
       onSelect: function (dateText) {
         setSelectedDate(dateText);
-      },
+      }
     });
 
-    $(".date-picker").on("click", function () {
+    $(".date-picker").on('click', function () {
       $("#datepicker").datepicker("show");
     });
   });
@@ -41,4 +37,4 @@ function Month() {
   );
 }
 
-export default Month;
+export default WeekPage;
