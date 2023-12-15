@@ -1,0 +1,27 @@
+.navbar-div {
+  display: flex;
+  justify-content: left;
+  width: 1365px;
+  background-color: #a4c3a3;
+  border: 1px solid #b0d4b8;
+  height: 8rem;
+}
+
+.logo-img {
+  height: 6em;
+  padding: 1.5em;
+}
+.nav a{
+  color: black;
+  padding-left: 2em;
+}
+.big-box{
+  z-index: 10;
+  padding-left: 5em;
+}
+
+
+
+
+
+
