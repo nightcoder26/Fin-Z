@@ -1,4 +1,4 @@
-.container {
+/* .container {
   display: flex;
   height: 100vh;
 }
@@ -100,4 +100,104 @@ h2{
   height: 100px;
   position: relative;
 }
+ */
 
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.overview {
+  font-size: large;
+}
+.logo {
+  width: 2em;
+  height: 2em;
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+}
+
+.sidebar {
+  width: 15vw;
+  z-index: 1;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.navbar {
+  display: flex;
+  background-color: #ffffff;
+  /* padding: 1rem; */
+  padding-left: 2rem;
+  align-items: center;
+
+  font-size: larger;
+  font-weight: 500;
+  color: #83889b;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.13);
+  border-radius: 0.1rem;
+}
+
+.navbar ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar ul li {
+  display: inline;
+  margin-right: 20px;
+  font-size: 16px;
+}
+
+.navbar ul li a {
+  text-decoration: none;
+}
+
+.navbar ul li:hover {
+  color: #ff7faf;
+  cursor: pointer;
+}
+
+.navbar ul.left {
+  margin-right: auto;
+}
+
+.navbar ul.right {
+  margin-left: auto;
+}
+
+.main-content {
+  margin: 2rem;
+}
+
+.content-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.content-text h1 {
+  padding-bottom: 1rem;
+}
+
+.recent-details h2.recent-1 {
+  padding-left: 1rem;
+}
+
+.overview-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.graph {
+  padding: 1rem;
+  padding-left: 0;
+}

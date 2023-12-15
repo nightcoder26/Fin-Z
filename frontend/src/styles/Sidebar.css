@@ -2,14 +2,30 @@ body {
   margin: 0;
   font-family: Arial, sans-serif;
 }
-
+.logo {
+  display: flex;
+  padding: 1rem;
+  padding-left: 1rem;
+  align-items: center;
+  justify-content: left;
+  font-weight: 700;
+  font-size: 1.5rem;
+  font-family: Arial;
+}
+.image {
+  width: 1em;
+  height: 1em;
+}
 #sidebar {
   height: 100vh;
-  background-color: #a4c3a3;
+  /* position: fixed; */
+
+  background-color: #fff;
   /* position: fixed; */
   /* top: 0;
   left: 0; */
-  border: 1px solid #b0d4b8;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.13);
+  border-radius: 0.1rem;
 }
 
 #sidebar h1 {

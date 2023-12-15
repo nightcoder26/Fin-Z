@@ -1,0 +1,15 @@
+.main-container {
+  display: flex;
+  flex-direction: row !important;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  /* border: solid #a8a8a8 1px; */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.13);
+  border-radius: 0.7rem;
+  max-height: 5rem;
+  max-width: 40rem;
+  min-width: 25rem;
+  padding: 0 10px;
+  font-size: small;
+}

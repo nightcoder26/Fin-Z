@@ -7,7 +7,7 @@ import Month from "./pages/Month.jsx";
 import Daily from "./pages/Daily.jsx";
 import Week from "./pages/Week.jsx";
 import Category from "./pages/Category.jsx";
-
+import "./App.css";
 function App() {
   return (
     <>

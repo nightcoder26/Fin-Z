@@ -1,10 +1,15 @@
 import React from "react";
 import "../styles/Sidebar.css";
+import logo from "../assets/5856.jpg";
 const Sidebar = () => {
   return (
     <div>
       <div id="sidebar">
-        <h1>Fin-Z</h1>
+        <div className="logo">
+          <img src={logo} className="image" />
+          <p className="title">Fin-Z</p>
+        </div>
+
         <ul>
           <li>
             <a href="#" class="sidebar-link" data-target="overview">
