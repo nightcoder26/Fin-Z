@@ -8,7 +8,7 @@ const Transaction = () => {
         {/* <img src={logo} /> log is th image of the category */}
         <div className="details">
           <h2>School fee</h2>
-          <h4>Time:5:00pm</h4>
+          <h4 className="time">Time:5:00pm</h4>
         </div>
         <div className="amount">
           <h2>Rs. 5000</h2>

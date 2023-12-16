@@ -1,4 +1,4 @@
 body {
   background-color: #f8fbfd;
-  font-family: "Poppins", sans-serif;
+  font-family: "Poppins", sans-serif !important;
 }
