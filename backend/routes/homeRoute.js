@@ -128,7 +128,7 @@ router.get("/expense", async (req, res) => {
     });
     //sending this data for a get request to /api/home/expense
   } catch (err) {
-    console.log("error getting expenses");
+    console.log(err);
   }
 });
 

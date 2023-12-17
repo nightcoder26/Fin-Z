@@ -179,6 +179,8 @@ const Home = () => {
       });
   }, []);
 
+  console.log(expense);
+
   //total expense for a month
 
   const expenseMonth = [];
