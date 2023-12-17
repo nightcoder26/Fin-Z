@@ -1,16 +1,8 @@
 body {
   margin: 0;
- 
 }
 .logo {
-  display: flex;
   padding: 1rem;
-  padding-left: 1rem;
-  align-items: center;
-  justify-content: left;
-  font-weight: 700;
-  font-size: 1.5rem;
-  font-family: Arial;
 }
 .image {
   width: 1em;
@@ -90,5 +82,30 @@ body {
 .sidebar-link.active {
   background-color: lightgray;
   display: block;
-  padding: 15px;
+  /* padding: 15px; */
+}
+
+.list-items {
+  list-style: none;
+  margin: 0.4rem;
+}
+
+.list-items img {
+  padding-right: 0.5rem;
+}
+
+.page-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  padding: 1.5rem;
+
+  text-align: center;
+  display: flex;
+}
+.page-title p {
+  padding-top: 0.5rem;
+}
+
+.page-logo {
+  padding-right: 1rem;
 }

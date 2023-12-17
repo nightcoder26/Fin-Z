@@ -15,43 +15,44 @@ import "../styles/Month.css";
 function Month() {
   const [selectedDate, setSelectedDate] = useState("");
 
-  $(function () {
-    $("#datepicker").datepicker({
-      onSelect: function (dateText) {
-        setSelectedDate(dateText);
-      },
-    });
+  // $(function () {
+  //   $("#datepicker").datepicker({
+  //     onSelect: function (dateText) {
+  //       setSelectedDate(dateText);
+  //     },
+  //   });
 
-    $(".date-picker").on("click", function () {
-      $("#datepicker").datepicker("show");
-    });
-  });
+  //   $(".date-picker").on("click", function () {
+  //     $("#datepicker").datepicker("show");
+  //   });
+  // });
 
   return (
-    <div className="container">
-      <div className="sidebar child">
-        <Sidebar />
-      </div>
-      <div className="content child">
-        <Navbar pageName="Month" className="nav-1" />
-        <div className="main-container">
-          <div className="horizontal-container">
-            <div className="horizontal-box"></div>
-            <div className="horizontal-box"></div>
-            <div className="horizontal-box third-box"></div>
-            <input type="text" className="date-picker" id="datepicker" />
-          </div>
+    // <div className="container">
+    //   <div className="sidebar child">
+    //     <Sidebar />
+    //   </div>
+    //   <div className="content child">
+    //     <Navbar pageName="Month" className="nav-1" />
+    //     <div className="main-container">
+    //       <div className="horizontal-container">
+    //         <div className="horizontal-box"></div>
+    //         <div className="horizontal-box"></div>
+    //         <div className="horizontal-box third-box"></div>
+    //         <input type="text" className="date-picker" id="datepicker" />
+    //       </div>
 
-          <div className="vertical-container">
-            {[...Array(10)].map((_, index) => (
-              <div className="vertical-box" key={index}></div>
-            ))}
-          </div>
+    //       <div className="vertical-container">
+    //         {[...Array(10)].map((_, index) => (
+    //           <div className="vertical-box" key={index}></div>
+    //         ))}
+    //       </div>
 
-          <p id="selectedDate">{selectedDate}</p>
-        </div>
-      </div>
-    </div>
+    //       <p id="selectedDate">{selectedDate}</p>
+    //     </div>
+    //   </div>
+    // </div>
+    <div>hi</div>
   );
 }
 

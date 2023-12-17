@@ -25,9 +25,7 @@ const Recents = () => {
 const Dashboard = () => {
   return (
     <div className="content-text">
-      <h1 className="welcome">
-        Welcome back, <h4 className="user-name"> Username</h4>
-      </h1>
+      <h1 className="welcome">Hey, Username</h1>
       <p className="overview">Here's your overview</p>
       <div className="graph">
         <img src={graph} className="graph-img" width={750} />

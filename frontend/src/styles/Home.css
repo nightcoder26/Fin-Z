@@ -212,5 +212,5 @@ h2{
   background-color: #6748d6;
   color: white;
   transform: none;
-  box-shadow: none;
+  box-shadow: 0 0 0.4rem #6748d6;
 }

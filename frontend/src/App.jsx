@@ -14,11 +14,12 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/year" element={<Year />} />
-          <Route path="/daily" element={<Daily />} />
+          {/* <Route path="/year" element={<Year />} />
+          <Route path="/daily" element={<Daily />} /> */}
           <Route path="/month" element={<Month />} />
           <Route path="/new-entry" element={<NewEntry />} />
-          <Route path="/week" element={<Week />} />
+          {/* <Route path="/week" element={<Week />} /> */}
+
           <Route path="/category" element={<Category />} />
         </Routes>
       </BrowserRouter>
