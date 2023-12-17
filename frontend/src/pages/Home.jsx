@@ -9,10 +9,25 @@ import Navbar2 from "../components/Navbar2.jsx";
 import logo from "../assets/5856.jpg";
 import graph from "../assets/graph.png";
 import "../styles/Home.css";
+
+const Recents = () => {
+  return (
+    <div className="recent-details">
+      <h2 className="recent-1">Recent Transactions</h2>
+      <Transaction />
+      <Transaction />
+      <Transaction />
+      <Transaction />
+      <Transaction />
+    </div>
+  );
+};
 const Dashboard = () => {
   return (
     <div className="content-text">
-      <h1>Welcome back, Username</h1>
+      <h1 className="welcome">
+        Welcome back, <h4 className="user-name"> Username</h4>
+      </h1>
       <p className="overview">Here's your overview</p>
       <div className="graph">
         <img src={graph} className="graph-img" width={750} />
@@ -27,8 +42,43 @@ const Dashboard = () => {
     </div>
   );
 };
+
 const Transactions = () => {
-  return <div>Transactions</div>;
+  const recentArray = [];
+  return (
+    <div>
+      <div>
+        <h2 className="transaction-h2">Transactions</h2>
+        <div className="table">
+          <div className="table-row header">
+            <div className="table-cell first">Source</div>
+            <div className="table-cell">Amount</div>
+            <div className="table-cell">Date</div>
+            <div className="table-cell last">Category</div>
+          </div>
+          <div className="table-row">
+            <div className="table-cell first">Amazon</div>
+            <div className="table-cell">1000</div>
+            <div className="table-cell">12/12/2020</div>
+            <div className="table-cell last">Shopping</div>
+          </div>
+          <div className="table-row">
+            <div className="table-cell first">Amazon</div>
+            <div className="table-cell">1000</div>
+            <div className="table-cell">12/12/2020</div>
+            <div className="table-cell last">Shopping</div>
+          </div>
+          <div className="table-row">
+            <div className="table-cell first">Amazon</div>
+            <div className="table-cell">1000</div>
+            <div className="table-cell">12/12/2020</div>
+            <div className="table-cell last">Shopping</div>
+          </div>
+          {/* Mapping the recentArray as table rows */}
+        </div>
+      </div>
+    </div>
+  );
 };
 const Totals = () => {
   const [totals, setTotals] = useState([]);
@@ -104,7 +154,7 @@ const Totals = () => {
     //   </div>
     // </div>
   }
-  return <div>totals</div>;
+  return <div>Totals</div>;
 };
 const Home = () => {
   //Navbar code
@@ -156,20 +206,18 @@ const Home = () => {
           <div className="main-content">
             <div className="overview-container">
               {selectedNumber == 1 ? (
-                <Dashboard />
+                <>
+                  <Dashboard />
+                  <Recents />
+                </>
               ) : selectedNumber == 2 ? (
                 <Transactions />
               ) : (
-                <Totals />
+                <>
+                  <Totals />
+                  <Recents />
+                </>
               )}
-              <div className="recent-details">
-                <h2 className="recent-1">Recent Transactions</h2>
-                <Transaction />
-                <Transaction />
-                <Transaction />
-                <Transaction />
-                <Transaction />
-              </div>
             </div>
           </div>
         </div>

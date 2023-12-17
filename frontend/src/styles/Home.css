@@ -107,6 +107,12 @@ h2{
   padding: 0;
 }
 
+.user-name {
+  color: #6748d6;
+}
+.welcome {
+  display: flex;
+}
 .overview {
   font-size: large;
 }
@@ -153,8 +159,58 @@ h2{
   display: flex;
   justify-content: space-between;
 }
-
+.recent-1 {
+  color: #6748d6;
+}
 .graph {
   padding: 1rem;
   padding-left: 0;
+}
+.transaction-h2 {
+  padding: 1rem;
+  padding-bottom: 0;
+  color: #6748d6;
+}
+.table {
+  padding: 1rem;
+  width: 80vw;
+  border-radius: 1rem;
+}
+
+.table-row {
+  display: flex;
+  flex-direction: row;
+  /* border-bottom: 1px solid #ccc;
+  border-top: 1px solid #ccc; */
+  margin: 0.7rem;
+  box-shadow: 0 0 0.4rem rgba(0, 0, 0, 0.13);
+  /* border-radius: 0.5rem; */
+}
+
+.table-cell {
+  flex: 1;
+  padding: 1rem;
+  cursor: pointer;
+}
+
+.table-row:hover {
+  /* background-color: #eef0f1; */
+  transform: scale(1.01);
+  transition: 250ms;
+  box-shadow: 0 0 0.7rem rgba(0, 0, 0, 0.3);
+}
+
+.header {
+  font-weight: bold;
+  /* color: #6748d6; */
+  color: white;
+  background-color: #6748d6;
+
+  box-shadow: 0 0 0.1rem #6748d6;
+}
+.header:hover {
+  background-color: #6748d6;
+  color: white;
+  transform: none;
+  box-shadow: none;
 }
