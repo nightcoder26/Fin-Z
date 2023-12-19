@@ -1,5 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import { LineChart, Line } from "recharts";
 
 import Navbar from "../components/Navbar.jsx";
 import Sidebar from "../components/Sidebar.jsx";
