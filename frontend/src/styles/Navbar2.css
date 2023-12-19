@@ -49,3 +49,25 @@
   color: #6748d6;
   font-weight: 600;
 }
+
+#logout-button {
+  font-family: "poppins", sans-serif !important;
+  background-color: #6748d6;
+  color: #ffffff;
+  border: none;
+  padding: 0.6rem;
+  padding-left: 0.8rem;
+  padding-right: 0.8rem;
+  font-size: 1rem;
+  border-radius: 0.4rem;
+  margin-right: 1rem;
+  /* overflow: scroll; */
+  cursor: pointer;
+  box-shadow: 0 0 0.2rem rgba(0, 0, 0, 0.13);
+}
+
+#logout-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 0.3rem rgba(0, 0, 0, 0.3);
+  /* font-weight: 600; */
+}
