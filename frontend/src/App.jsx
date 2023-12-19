@@ -14,13 +14,13 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/home" element={<Home />} />
           {/* <Route path="/year" element={<Year />} />
           <Route path="/daily" element={<Daily />} /> */}
           <Route path="/month" element={<Month />} />
           <Route path="/new-entry" element={<NewEntry />} />
           {/* <Route path="/week" element={<Week />} /> */}
-          <Route path="/signup" element={<SignUp />} />
+          <Route path="/" element={<SignUp />} />
           <Route path="/category" element={<Category />} />
           <Route path="/login" element={<div>login</div>} />
         </Routes>

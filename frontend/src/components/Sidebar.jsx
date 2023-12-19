@@ -17,7 +17,7 @@ const Sidebar = () => {
 
         <ul>
           <li className="list-items" id="overview">
-            <Link to="/" className="sidebar-link" data-target="overview">
+            <Link to="/home" className="sidebar-link" data-target="overview">
               {/* <span className="dot"></span> */}
               <img src={calendar} width={18} className="list-images" />
               Overview

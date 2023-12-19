@@ -10,6 +10,9 @@ const Navbar2 = (props) => {
     props.onSelected(itemNumber);
     console.log(itemNumber);
   };
+  // const handleLogout =()={
+
+  // }
   return (
     <nav className="navbar">
       <ul className="left">
@@ -33,7 +36,12 @@ const Navbar2 = (props) => {
         </li>
       </ul>
       <ul className="right">
-        <img src={logo} className="logo" alt="account icon" />
+        <img
+          src={logo}
+          className="logo"
+          alt="account icon"
+          // onClick={handleLogout}
+        />
       </ul>
     </nav>
   );

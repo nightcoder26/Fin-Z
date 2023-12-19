@@ -11,7 +11,7 @@ body {
 #sidebar {
   height: 100vh;
   /* position: fixed; */
-
+  width: auto;
   background-color: #fff;
   /* position: fixed; */
   /* top: 0;
