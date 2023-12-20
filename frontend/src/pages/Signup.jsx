@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-
+import { FaUser, FaLock } from "react-icons/fa";
 import { Navigate } from "react-router-dom";
+import "../styles/Signup.css";
 const SignUp = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -48,7 +49,7 @@ const SignUp = () => {
       {signupSuccess || localStorage.getItem("username") ? (
         <Navigate to="/home" replace />
       ) : (
-        <form onSubmit={handleSignUp}>
+        <form onSubmit={handleSignUp} className="signup-page">
           <h1>SignUp</h1>
           <div className="input-box">
             <input
@@ -58,6 +59,7 @@ const SignUp = () => {
               onChange={handleUsernameChange}
               required
             />
+            <FaUser className="icon" />
           </div>
           <div className="input-box">
             <input
@@ -67,9 +69,12 @@ const SignUp = () => {
               onChange={handlePasswordChange}
               required
             />
+            <FaLock className="icon" />
+          </div>
+          <div className="button">
+            <button type="submit">SignUp</button>
           </div>
 
-          <button type="submit">SignUp</button>
           <div className="login-link">
             <p>
               Have an account already? <Link to="/login">Login</Link>

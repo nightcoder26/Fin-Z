@@ -1,7 +1,8 @@
-import { set } from "mongoose";
 import React from "react";
 import { useState } from "react";
 import { Link, Navigate } from "react-router-dom";
+import { FaUser, FaLock } from "react-icons/fa";
+import "../styles/Signup.css";
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -38,11 +39,11 @@ const Login = () => {
   };
 
   return (
-    <div>
+    <div className="wrapper">
       {loginSuccess || localStorage.getItem("username") ? (
         <Navigate to="/home" replace />
       ) : (
-        <form onSubmit={handleLogin}>
+        <form onSubmit={handleLogin} className="signup-page">
           <h1>Login</h1>
           <div className="input-box">
             <input
@@ -51,6 +52,7 @@ const Login = () => {
               value={username}
               onChange={handleUsernameChange}
             ></input>
+            <FaUser className="icon" />
           </div>
           <div className="input-box">
             <input
@@ -59,11 +61,15 @@ const Login = () => {
               value={password}
               onChange={handlePasswordChange}
             ></input>
+            <FaLock className="icon" />
           </div>
-          <button type="submit">Login</button>
-          <div className="signup-link">
+          <div className="button">
+            <button type="submit">Login</button>
+          </div>
+
+          <div className="login-link">
             <p>
-              Don't have an account? <Link to="/">Signup</Link> now!
+              Don't have an account? <Link to="/">Signup</Link>now!
             </p>
             <p>{text}</p>
           </div>

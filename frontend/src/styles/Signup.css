@@ -1,0 +1,71 @@
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.signup-page {
+  width: 30%;
+  background-color: aqua;
+  color: white;
+}
+
+.signup-page h1 {
+  text-align: center;
+  margin: 2rem;
+}
+
+.signup-page .input-box {
+  position: relative;
+  margin: 2rem;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 2rem;
+
+  height: 2.5rem;
+}
+
+.signup-page input {
+  background-color: aqua;
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  border: 0.05rem solid rgba(0, 0, 0, 0.2);
+  border-radius: 40px;
+}
+
+.input-box input::placeholder {
+  color: white;
+  padding: 0.5rem;
+}
+
+.input-box .icon {
+  position: absolute;
+  right: 10%;
+  top: 45%;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button button {
+  background-color: #4caf50;
+  color: white;
+  padding: 14px 20px;
+  margin: 2rem;
+  margin-top: 0;
+  margin-bottom: 0;
+  border: none;
+  cursor: pointer;
+  border-radius: 40px;
+}
+
+.login-link {
+  text-align: center;
+  margin: 2rem;
+}
