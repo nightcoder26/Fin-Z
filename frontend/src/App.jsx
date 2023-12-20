@@ -6,6 +6,7 @@ import Year from "./pages/Year.jsx";
 import Month from "./pages/Month.jsx";
 import Daily from "./pages/Daily.jsx";
 import Week from "./pages/Week.jsx";
+import Login from "./pages/Login.jsx";
 import Category from "./pages/Category.jsx";
 import SignUp from "./pages/Signup.jsx";
 import "./App.css";
@@ -22,7 +23,7 @@ function App() {
           {/* <Route path="/week" element={<Week />} /> */}
           <Route path="/" element={<SignUp />} />
           <Route path="/category" element={<Category />} />
-          <Route path="/login" element={<div>login</div>} />
+          <Route path="/login" element={<Login />} />
         </Routes>
       </BrowserRouter>
     </>

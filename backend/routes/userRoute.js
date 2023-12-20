@@ -25,5 +25,23 @@ router.post("/", async (req, res) => {
     console.log("error adding new user", error);
   }
 });
-
+//Checking if username exists
+router.post("/login", async (req, res) => {
+  try {
+    const { username, password } = req.body;
+    const validUsername = await User.findOne({ username });
+    if (!validUsername) {
+      return res.status(401).json({ message: "Username does not exist" });
+    }
+    if (validUsername.password !== password) {
+      return res.status(401).json({ message: "Password is incorrect" });
+    }
+    return res
+      .status(200)
+      .json({ message: "Username and password are correct" });
+  } catch (error) {
+    console.log("error checking username/password", error);
+    res.status(500).json({ message: "Internal server error" });
+  }
+});
 module.exports = router;
