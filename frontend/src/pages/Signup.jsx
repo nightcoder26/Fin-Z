@@ -24,7 +24,7 @@ const SignUp = () => {
 
       if (response.ok) {
         console.log("signup successful");
-        localStorage.setItem("username", username);
+        localStorage.setItem("userId", data.userId);
         setSignupSuccess(true);
       } else {
         // alert(data.message || "Signup failed");

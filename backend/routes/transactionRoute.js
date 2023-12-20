@@ -20,6 +20,7 @@ router.post("/:userId", async (req, res) => {
       description,
       category,
       user: userId,
+      title,
     });
 
     await transaction.save();

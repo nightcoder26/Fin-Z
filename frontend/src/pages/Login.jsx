@@ -20,7 +20,7 @@ const Login = () => {
       const data = await response.json();
       if (response.ok) {
         console.log("login successful");
-        localStorage.setItem("username", username);
+        localStorage.setItem("userId", data.userId);
         setLoginSuccess(true);
       } else {
         setText(data.message || "Login failed , Invalid username or password");

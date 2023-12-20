@@ -43,6 +43,8 @@ const Dashboard = (props) => {
 };
 
 const Transactions = () => {
+  //getting all transactions of a user
+  const [transactions, setTransactions] = useState([]);
   const recentArray = [];
   return (
     <div>

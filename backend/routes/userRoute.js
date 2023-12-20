@@ -20,7 +20,7 @@ router.post("/", async (req, res) => {
     const newUser = new User({ username, password });
     await newUser.save();
 
-    res.status(201).json({ message: "New user added" });
+    res.status(201).json({ message: "New user added", userId: newUser._id });
   } catch (error) {
     console.log("error adding new user", error);
   }
@@ -36,12 +36,14 @@ router.post("/login", async (req, res) => {
     if (validUsername.password !== password) {
       return res.status(401).json({ message: "Password is incorrect" });
     }
-    return res
-      .status(200)
-      .json({ message: "Username and password are correct" });
+    return res.status(200).json({
+      message: "Username and password are correct",
+      userId: validUsername._id,
+    });
   } catch (error) {
     console.log("error checking username/password", error);
     res.status(500).json({ message: "Internal server error" });
   }
 });
+
 module.exports = router;
