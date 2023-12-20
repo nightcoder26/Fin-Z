@@ -4,4 +4,6 @@ frontend2/node_modules
 frontend/node_modules
 backend/.env
 node_modules
-frontend2
+frontend2/public
+frontend2/src
+
