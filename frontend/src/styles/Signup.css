@@ -3,17 +3,38 @@
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+  background-image: url("../assets/BACKGROUND-LOGIN-SIGNUP.jpg");
+  background-size: cover;
 }
 
 .signup-page {
   width: 30%;
-  background-color: aqua;
+  background-color: transparent;
   color: white;
+  border-radius: 0.5rem;
+  border: 0.1rem solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(0.3rem);
+  /* height: max-content; */
 }
 
 .signup-page h1 {
   text-align: center;
   margin: 2rem;
+  margin-bottom: 0.3rem;
+  box-shadow: 0 0 0.7rem rgba(0, 0, 0, 0.5);
+  padding: 0.2rem;
+  color: #fff;
+}
+.signup-page .for-head {
+  box-shadow: 0 0 0.7rem rgba(0, 0, 0, 0.5);
+}
+.signup-page p {
+  text-align: center;
+}
+.signup-page h2 {
+  text-align: center;
+  margin: 2rem;
+  margin-bottom: 0;
 }
 
 .signup-page .input-box {
@@ -27,35 +48,43 @@
 }
 
 .signup-page input {
-  background-color: aqua;
+  background-color: transparent;
   width: 100%;
   height: 100%;
   border: none;
   outline: none;
-  border: 0.05rem solid rgba(0, 0, 0, 0.2);
+  /* border: 0.05rem solid rgba(0, 0, 0, 0.2); */
+  border: 0.1rem solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0.08rem 0.1rem rgba(0, 0, 0, 0.3);
   border-radius: 40px;
+  padding: 0.5rem;
+  padding-left: 1rem;
+  caret-color: #fff;
 }
 
 .input-box input::placeholder {
-  color: white;
-  padding: 0.5rem;
+  color: #fff;
+  /* padding: 1rem; */
+  /* padding-left: 1rem; */
+  font-size: medium;
 }
 
 .input-box .icon {
   position: absolute;
   right: 10%;
-  top: 45%;
+  top: 50%;
 }
 
 .button {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin: 1rem;
 }
 
 .button button {
-  background-color: #4caf50;
-  color: white;
+  background-color: #fff;
+  color: #000;
   padding: 14px 20px;
   margin: 2rem;
   margin-top: 0;
@@ -63,9 +92,21 @@
   border: none;
   cursor: pointer;
   border-radius: 40px;
+  font-size: medium;
+  width: 40%;
+  box-shadow: 0 0 0.7rem rgba(0, 0, 0, 0.3);
 }
 
+.button button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 0.7rem rgba(0, 0, 0, 0.5);
+}
 .login-link {
   text-align: center;
   margin: 2rem;
+  color: #fff;
+}
+
+.login-link a {
+  color: #fff;
 }

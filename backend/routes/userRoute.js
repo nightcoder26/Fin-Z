@@ -20,7 +20,13 @@ router.post("/", async (req, res) => {
     const newUser = new User({ username, password });
     await newUser.save();
 
-    res.status(201).json({ message: "New user added", userId: newUser._id });
+    res
+      .status(201)
+      .json({
+        message: "New user added",
+        userId: newUser._id,
+        username: newUser.username,
+      });
   } catch (error) {
     console.log("error adding new user", error);
   }

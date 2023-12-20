@@ -26,6 +26,7 @@ const SignUp = () => {
       if (response.ok) {
         console.log("signup successful");
         localStorage.setItem("userId", data.userId);
+        localStorage.setItem("username", data.username);
         setSignupSuccess(true);
       } else {
         // alert(data.message || "Signup failed");
@@ -50,7 +51,12 @@ const SignUp = () => {
         <Navigate to="/home" replace />
       ) : (
         <form onSubmit={handleSignUp} className="signup-page">
-          <h1>SignUp</h1>
+          <div className="head">
+            <h1>Fin-Z</h1>
+            <p>Track smarter, spend wiser, live better.</p>
+          </div>
+
+          <h2>SignUp</h2>
           <div className="input-box">
             <input
               type="text"

@@ -43,37 +43,44 @@ const Login = () => {
       {loginSuccess || localStorage.getItem("username") ? (
         <Navigate to="/home" replace />
       ) : (
-        <form onSubmit={handleLogin} className="signup-page">
-          <h1>Login</h1>
-          <div className="input-box">
-            <input
-              type="text"
-              placeholder="Username"
-              value={username}
-              onChange={handleUsernameChange}
-            ></input>
-            <FaUser className="icon" />
-          </div>
-          <div className="input-box">
-            <input
-              type="password"
-              placeholder="Password"
-              value={password}
-              onChange={handlePasswordChange}
-            ></input>
-            <FaLock className="icon" />
-          </div>
-          <div className="button">
-            <button type="submit">Login</button>
-          </div>
+        <>
+          <form onSubmit={handleLogin} className="signup-page">
+            <div className="head">
+              <h1>Fin-Z</h1>
+              <p>Track smarter, spend wiser, live better.</p>
+            </div>
 
-          <div className="login-link">
-            <p>
-              Don't have an account? <Link to="/">Signup</Link>now!
-            </p>
-            <p>{text}</p>
-          </div>
-        </form>
+            <h2>Login</h2>
+            <div className="input-box">
+              <input
+                type="text"
+                placeholder="Username"
+                value={username}
+                onChange={handleUsernameChange}
+              ></input>
+              <FaUser className="icon" />
+            </div>
+            <div className="input-box">
+              <input
+                type="password"
+                placeholder="Password"
+                value={password}
+                onChange={handlePasswordChange}
+              ></input>
+              <FaLock className="icon" />
+            </div>
+            <div className="button">
+              <button type="submit">Login</button>
+            </div>
+
+            <div className="login-link">
+              <p>
+                Don't have an account? <Link to="/">Signup</Link> now!
+              </p>
+              <p>{text}</p>
+            </div>
+          </form>
+        </>
       )}
     </div>
   );
