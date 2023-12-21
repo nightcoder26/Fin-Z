@@ -3,8 +3,12 @@ import Navbar2 from "../components/Navbar2.jsx";
 import Sidebar from "../components/Sidebar.jsx";
 import "../styles/NewEntry.css";
 import { useState } from "react";
+import { set } from "mongoose";
 const NewEntry = () => {
+  const userId = localStorage.getItem("userId");
   const [selectedNumber, setSelectedNumber] = useState(1);
+  const [text, setText] = useState("");
+
   const handleNavbarSelectedItem = (number) => {
     setSelectedNumber(number);
   };
@@ -31,15 +35,36 @@ const NewEntry = () => {
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    setFormData({
-      title: "",
-      description: "",
-      date: "",
-      type: "income",
-      category: "other",
-      amount: "",
-    });
+    try {
+      const response = await fetch(
+        `http://localhost:4000/api/transactions/${userId}`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
+      const data = await response.json();
+      if (response.ok) {
+        setText("Transaction added successfully");
+        console.log("transaction added successfully");
+        setFormData({
+          title: "",
+          description: "",
+          date: "",
+          type: "income",
+          category: "other",
+          amount: "",
+        });
+      } else {
+        setText(data.message || "Transaction add failed");
+        console.log("transaction add failed");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+    }
   };
   return (
     <div className="container-1">
@@ -161,6 +186,9 @@ const NewEntry = () => {
             </div>
             <div className="form-group">
               <button type="submit">Submit</button>
+            </div>
+            <div className="form-group">
+              <p>{text}</p>
             </div>
           </form>
         </div>

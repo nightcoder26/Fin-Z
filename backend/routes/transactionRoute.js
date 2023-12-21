@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const { Transaction } = require("../models/transactionModel.js");
-
+const { User } = require("../models/userModel.js");
 router.get("/", async (req, res) => {
   res.send("Hello from transactions!");
 });
@@ -9,12 +9,12 @@ router.get("/", async (req, res) => {
 // POST a new transaction for a specific user
 router.post("/:userId", async (req, res) => {
   try {
-    const { amount, time, date, type, description, category } = req.body;
+    const { amount, date, type, description, category, title } = req.body;
     const userId = req.params.userId;
 
     const transaction = new Transaction({
       amount,
-      time,
+
       date,
       type,
       description,
@@ -24,6 +24,12 @@ router.post("/:userId", async (req, res) => {
     });
 
     await transaction.save();
+    await User.findByIdAndUpdate(
+      userId,
+      { $push: { transactions: transaction._id } },
+      { new: true }
+    );
+
     res.status(201).json(transaction);
   } catch (err) {
     res.status(400).json({ message: err.message });

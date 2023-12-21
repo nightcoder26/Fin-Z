@@ -3,11 +3,8 @@ const cors = require("cors");
 const { connectDatabase } = require("./db/connection.js");
 const userRoute = require("./routes/userRoute.js");
 const transactionRoute = require("./routes/transactionRoute.js");
-
 const PORT = process.env.PORT || 3000;
 const express = require("express");
-
-// const homeRoute = require("./routes/homeRoute.js");
 
 const app = express();
 app.use(express.json());

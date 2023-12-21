@@ -22,6 +22,7 @@ const Login = () => {
       if (response.ok) {
         console.log("login successful");
         localStorage.setItem("userId", data.userId);
+        localStorage.setItem("username", data.username);
         setLoginSuccess(true);
       } else {
         setText(data.message || "Login failed , Invalid username or password");
@@ -77,7 +78,7 @@ const Login = () => {
               <p>
                 Don't have an account? <Link to="/">Signup</Link> now!
               </p>
-              <p>{text}</p>
+              <p className="red-text">{text}</p>
             </div>
           </form>
         </>

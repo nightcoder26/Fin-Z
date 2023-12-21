@@ -2,24 +2,51 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { LineChart, Line } from "recharts";
 
-import Navbar from "../components/Navbar.jsx";
 import Sidebar from "../components/Sidebar.jsx";
 import Tcard from "../components/Tcard.jsx";
 import Transaction from "../components/Transaction.jsx";
 import Navbar2 from "../components/Navbar2.jsx";
-import logo from "../assets/5856.jpg";
 import graph from "../assets/graph.png";
 import "../styles/Home.css";
 
 const Recents = () => {
+  const [transactions, setTransactions] = useState([]);
+  useEffect(() => {
+    const userId = localStorage.getItem("userId");
+    try {
+      fetch(`http://localhost:4000/api/transactions/${userId}`, {
+        method: "GET",
+      })
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error("Network response was not ok");
+          }
+          return response.json();
+        })
+        .then((data) => {
+          setTransactions(data);
+        })
+        .catch((error) => {
+          console.error("Error fetching data:", error);
+        });
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  }, []);
+  console.log(transactions);
   return (
     <div className="recent-details">
       <h2 className="recent-1">Recent Transactions</h2>
+
+      {/* <Transaction
+        title={transactions[0].title}
+        amount={transactions[0].amount}
+        time={transactions[0].date}
+      /> */}
+      {/* <Transaction />
       <Transaction />
       <Transaction />
-      <Transaction />
-      <Transaction />
-      <Transaction />
+      <Transaction /> */}
     </div>
   );
 };
@@ -166,7 +193,13 @@ const Home = () => {
       setUsername(storedUsername);
     }
   }, []);
-
+  const [userId, setUserId] = useState("");
+  useEffect(() => {
+    const storedUserId = localStorage.getItem("userId");
+    if (storedUserId) {
+      setUserId(storedUserId);
+    }
+  }, []);
   //Navbar code
   const [selectedNumber, setSelectedNumber] = useState(1);
   const handleNavbarSelectedItem = (number) => {

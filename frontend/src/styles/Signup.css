@@ -53,6 +53,7 @@
   height: 100%;
   border: none;
   outline: none;
+  color: white;
   /* border: 0.05rem solid rgba(0, 0, 0, 0.2); */
   border: 0.1rem solid rgba(255, 255, 255, 0.2);
   box-shadow: 0 0.08rem 0.1rem rgba(0, 0, 0, 0.3);
@@ -109,4 +110,8 @@
 
 .login-link a {
   color: #fff;
+}
+
+.red-text {
+  color: red;
 }
