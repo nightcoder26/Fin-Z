@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { LineChart, Line } from "recharts";
-
+import moment from "moment-timezone";
 import Sidebar from "../components/Sidebar.jsx";
 import Tcard from "../components/Tcard.jsx";
 import Transaction from "../components/Transaction.jsx";
@@ -50,15 +50,21 @@ const Recents = () => {
     <div className="recent-details">
       <h2 className="recent-1">Recent Transactions</h2>
 
-      {recentTransactions.map((transaction, index) => (
-        <Transaction
-          key={index}
-          title={transaction.title}
-          amount={transaction.amount}
-          time={transaction.date}
-          type={transaction.type}
-        />
-      ))}
+      {recentTransactions.map((transaction, index) => {
+        const istDateTime = moment(transaction.date)
+          .tz("Asia/Kolkata")
+          .format("MMMM DD, YYYY h:mmA");
+
+        return (
+          <Transaction
+            key={index}
+            title={transaction.title}
+            amount={transaction.amount}
+            time={istDateTime}
+            type={transaction.type}
+          />
+        );
+      })}
     </div>
   );
 };

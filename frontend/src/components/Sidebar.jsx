@@ -5,6 +5,7 @@ import calendar from "../assets/CALENDAR-LIST.png";
 import pen from "../assets/NEW-ENTRY-LIST.png";
 import pie from "../assets/PIE-LIST.png";
 import everything from "../assets/EVERYTHING-LIST.png";
+import settings from "../assets/SETTINGS.png";
 import { Link } from "react-router-dom";
 const Sidebar = () => {
   return (
@@ -47,6 +48,12 @@ const Sidebar = () => {
               {/* <span className="dot"></span> */}
               <img src={everything} width={18} className="list-images" />
               Analysis
+            </Link>
+          </li>
+          <li className="list-items" id="settings">
+            <Link to="/settings" className="sidebar-link">
+              <img src={settings} width={18} className="list-images" />
+              Settings
             </Link>
           </li>
         </ul>
