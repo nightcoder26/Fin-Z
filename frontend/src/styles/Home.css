@@ -214,3 +214,8 @@ h2{
   transform: none;
   box-shadow: 0 0 0.4rem #6748d6;
 }
+
+.empty {
+  padding-left: 1rem;
+  padding: 1rem;
+}

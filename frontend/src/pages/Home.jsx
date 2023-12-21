@@ -33,20 +33,32 @@ const Recents = () => {
       console.error("Error fetching data:", error);
     }
   }, []);
-  console.log(transactions);
+  if (transactions.length === 0) {
+    return (
+      <div className="recent-details">
+        <h2 className="recent-1">Recent Transactions</h2>
+        <p className="empty">
+          Wow, Such empty.<p> Add a new income/expense</p>
+        </p>
+      </div>
+    );
+  }
+
+  const recentTransactions = transactions.slice(0, 5);
+  // console.log(transactions);
   return (
     <div className="recent-details">
       <h2 className="recent-1">Recent Transactions</h2>
 
-      {/* <Transaction
-        title={transactions[0].title}
-        amount={transactions[0].amount}
-        time={transactions[0].date}
-      /> */}
-      {/* <Transaction />
-      <Transaction />
-      <Transaction />
-      <Transaction /> */}
+      {recentTransactions.map((transaction, index) => (
+        <Transaction
+          key={index}
+          title={transaction.title}
+          amount={transaction.amount}
+          time={transaction.date}
+          type={transaction.type}
+        />
+      ))}
     </div>
   );
 };

@@ -1,6 +1,7 @@
 import React from "react";
-import logo from "../assets/5856.jpg";
 import "../styles/Transaction.css";
+import { FaCircle } from "react-icons/fa";
+
 const Transaction = (props) => {
   return (
     <>
@@ -11,6 +12,9 @@ const Transaction = (props) => {
           <h4 className="time">Time: {props.time}</h4>
         </div>
         <div className="amount">
+          <FaCircle
+            className={`dot ${props.type === "income" ? "green" : "red"}`}
+          />
           <h2>Rs. {props.amount}</h2>
         </div>
       </div>
