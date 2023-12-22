@@ -81,8 +81,8 @@ const Dashboard = (props) => {
       <h1 className="welcome">Hey, {props.username} 👋</h1>
       <p className="overview">Here's your overview</p>
       <div className="graph">
-        {/* <img src={graph} className="graph-img" width={750} /> */}
-        <LineChart
+        <img src={graph} className="graph-img" width={750} />
+        {/* <LineChart
           className="graph-img"
           width={700}
           height={400}
@@ -104,7 +104,7 @@ const Dashboard = (props) => {
           <CartesianGrid stroke="#ccc" className="graph-img" />
           <XAxis dataKey="date" className="graph-img" />
           <YAxis className="graph-img" />
-        </LineChart>
+        </LineChart> */}
       </div>
       <div className="recents">
         <h2>Details</h2>
