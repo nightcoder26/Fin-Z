@@ -10,6 +10,8 @@
   color: #83889b;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.13);
   border-radius: 0.1rem;
+  position: fixed;
+  width: 84%;
 }
 
 .navbar ul {

@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { LineChart, Line } from "recharts";
+import { LineChart, Line, XAxis, YAxis, CartesianGrid } from "recharts";
 import moment from "moment-timezone";
 import Sidebar from "../components/Sidebar.jsx";
 import Tcard from "../components/Tcard.jsx";
@@ -9,42 +9,20 @@ import Navbar2 from "../components/Navbar2.jsx";
 import graph from "../assets/graph.png";
 import "../styles/Home.css";
 
-const Recents = () => {
-  const [transactions, setTransactions] = useState([]);
-  useEffect(() => {
-    const userId = localStorage.getItem("userId");
-    try {
-      fetch(`http://localhost:4000/api/transactions/${userId}`, {
-        method: "GET",
-      })
-        .then((response) => {
-          if (!response.ok) {
-            throw new Error("Network response was not ok");
-          }
-          return response.json();
-        })
-        .then((data) => {
-          setTransactions(data);
-        })
-        .catch((error) => {
-          console.error("Error fetching data:", error);
-        });
-    } catch (error) {
-      console.error("Error fetching data:", error);
-    }
-  }, []);
+const Recents = (props) => {
+  const transactions = props.transactions;
   if (transactions.length === 0) {
     return (
       <div className="recent-details">
         <h2 className="recent-1">Recent Transactions</h2>
         <p className="empty">
-          Wow, Such empty.<p> Add a new income/expense</p>
+          Wow, Such empty. <br /> Add a new income/expense
         </p>
       </div>
     );
   }
 
-  const recentTransactions = transactions.slice(0, 5);
+  const recentTransactions = transactions.slice(0, 6);
   // console.log(transactions);
   return (
     <div className="recent-details">
@@ -69,16 +47,70 @@ const Recents = () => {
   );
 };
 const Dashboard = (props) => {
+  const data = [
+    { name: "Page A", uv: 400, pv: 2400, amt: 2400 },
+    { name: "Page B", uv: 300, pv: 4567, amt: 2400 },
+    { name: "Page C", uv: 200, pv: 1398, amt: 2400 },
+    { name: "Page D", uv: 500, pv: 9800, amt: 2400 },
+    { name: "Page E", uv: 600, pv: 3908, amt: 2400 },
+  ];
+  const transactions = props.transactions;
+  const expense = [];
+  const income = [];
+  transactions.forEach((transaction) => {
+    if (transaction.type === "expense") {
+      expense.push({
+        date: transaction.date.split("T")[0],
+        amount: transaction.amount,
+      });
+    } else if (transaction.type === "income") {
+      income.push({
+        date: transaction.date.split("T")[0],
+        amount: transaction.amount,
+      });
+    }
+  });
+
+  const combinedData = [
+    ...income.map((item) => ({ ...item, type: "income" })),
+    ...expense.map((item) => ({ ...item, type: "expense" })),
+  ];
+
   return (
     <div className="content-text">
-      <h1 className="welcome">Hey, {props.username}</h1>
+      <h1 className="welcome">Hey, {props.username} 👋</h1>
       <p className="overview">Here's your overview</p>
       <div className="graph">
-        <img src={graph} className="graph-img" width={750} />
+        {/* <img src={graph} className="graph-img" width={750} /> */}
+        <LineChart
+          className="graph-img"
+          width={700}
+          height={400}
+          data={combinedData}
+          margin={{ top: 0, right: 0, bottom: 0, left: 0 }}
+        >
+          <Line
+            type="monotone"
+            dataKey="amount"
+            stroke="#8884d8"
+            data={expense}
+          />
+          <Line
+            type="monotone"
+            dataKey="amount"
+            stroke="#82ca9d"
+            data={expense}
+          />
+          <CartesianGrid stroke="#ccc" className="graph-img" />
+          <XAxis dataKey="date" className="graph-img" />
+          <YAxis className="graph-img" />
+        </LineChart>
       </div>
       <div className="recents">
         <h2>Details</h2>
         <div className="recent-cards">
+          <Tcard />
+          <Tcard />
           <Tcard />
           <Tcard />
         </div>
@@ -89,8 +121,7 @@ const Dashboard = (props) => {
 
 const Transactions = () => {
   //getting all transactions of a user
-  const [transactions, setTransactions] = useState([]);
-  const recentArray = [];
+
   return (
     <div>
       <div>
@@ -204,20 +235,36 @@ const Totals = () => {
 };
 const Home = () => {
   const [username, setUsername] = useState("");
-
+  const [transactions, setTransactions] = useState([]);
+  const userId = localStorage.getItem("userId");
+  useEffect(() => {
+    try {
+      fetch(`http://localhost:4000/api/transactions/${userId}`, {
+        method: "GET",
+      })
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error("Network response was not ok");
+          }
+          return response.json();
+        })
+        .then((data) => {
+          setTransactions(data);
+        })
+        .catch((error) => {
+          console.error("Error fetching data:", error);
+        });
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  }, []);
   useEffect(() => {
     const storedUsername = localStorage.getItem("username");
     if (storedUsername) {
       setUsername(storedUsername);
     }
   }, []);
-  const [userId, setUserId] = useState("");
-  useEffect(() => {
-    const storedUserId = localStorage.getItem("userId");
-    if (storedUserId) {
-      setUserId(storedUserId);
-    }
-  }, []);
+
   //Navbar code
   const [selectedNumber, setSelectedNumber] = useState(1);
   const handleNavbarSelectedItem = (number) => {
@@ -261,6 +308,7 @@ const Home = () => {
         </div>
         <div className="content">
           <Navbar2
+            className="navbar-home"
             n1="Dashboard"
             n2="All-Transactions"
             n3="Totals"
@@ -270,15 +318,15 @@ const Home = () => {
             <div className="overview-container">
               {selectedNumber == 1 ? (
                 <>
-                  <Dashboard username={username} />
-                  <Recents />
+                  <Dashboard username={username} transactions={transactions} />
+                  <Recents transactions={transactions} />
                 </>
               ) : selectedNumber == 2 ? (
                 <Transactions />
               ) : (
                 <>
                   <Totals />
-                  <Recents />
+                  <Recents transactions={transactions} />
                 </>
               )}
             </div>
