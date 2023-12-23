@@ -47,13 +47,7 @@ const Recents = (props) => {
   );
 };
 const Dashboard = (props) => {
-  const data = [
-    { name: "Page A", uv: 400, pv: 2400, amt: 2400 },
-    { name: "Page B", uv: 300, pv: 4567, amt: 2400 },
-    { name: "Page C", uv: 200, pv: 1398, amt: 2400 },
-    { name: "Page D", uv: 500, pv: 9800, amt: 2400 },
-    { name: "Page E", uv: 600, pv: 3908, amt: 2400 },
-  ];
+ 
   const transactions = props.transactions;
   const expense = [];
   const income = [];
