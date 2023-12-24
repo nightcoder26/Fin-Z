@@ -235,3 +235,24 @@ h2{
 .graph-img {
   background-color: #6748d6;
 }
+
+.view-all {
+  border: none;
+  background-color: transparent;
+  text-decoration: underline;
+  color: #83889b;
+  font-size: medium;
+  font-family: "poppins";
+}
+.view-all:hover {
+  transform: scale(1.15);
+  text-shadow: 0 0 0.05rem rgba(0, 0, 0, 0.13);
+}
+.welcome-message {
+  margin-top: 1rem;
+}
+.recent-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}

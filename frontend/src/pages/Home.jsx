@@ -11,6 +11,7 @@ import "../styles/Home.css";
 
 const Recents = (props) => {
   const transactions = props.transactions;
+  const setSelectedNumber = props.numFunc;
   if (transactions.length === 0) {
     return (
       <div className="recent-details">
@@ -22,32 +23,40 @@ const Recents = (props) => {
     );
   }
 
-  const recentTransactions = transactions.slice(0, 6);
+  const recentTransactions = transactions.slice(0, 7);
+  const handleViewAll = () => {
+    setSelectedNumber(2);
+  };
   // console.log(transactions);
   return (
     <div className="recent-details">
-      <h2 className="recent-1">Recent Transactions</h2>
-
+      <div className="recent-container">
+        <h2 className="recent-1">Recent Transactions</h2>
+        <button className="view-all" onClick={handleViewAll}>
+          View all
+        </button>
+      </div>
       {recentTransactions.map((transaction, index) => {
         const istDateTime = moment(transaction.date)
           .tz("Asia/Kolkata")
           .format("MMMM DD, YYYY h:mmA");
 
         return (
-          <Transaction
-            key={index}
-            title={transaction.title}
-            amount={transaction.amount}
-            time={istDateTime}
-            type={transaction.type}
-          />
+          <>
+            <Transaction
+              key={index}
+              title={transaction.title}
+              amount={transaction.amount}
+              time={istDateTime}
+              type={transaction.type}
+            />
+          </>
         );
       })}
     </div>
   );
 };
 const Dashboard = (props) => {
- 
   const transactions = props.transactions;
   const expense = [];
   const income = [];
@@ -72,8 +81,11 @@ const Dashboard = (props) => {
 
   return (
     <div className="content-text">
-      <h1 className="welcome">Hey, {props.username} 👋</h1>
-      <p className="overview">Here's your overview</p>
+      <div className="welcome-message">
+        <h1 className="welcome">Hey, {props.username} 👋</h1>
+        <p className="overview">Here's your overview</p>
+      </div>
+
       <div className="graph">
         <img src={graph} className="graph-img" width={750} />
         {/* <LineChart
@@ -113,16 +125,16 @@ const Dashboard = (props) => {
   );
 };
 
-const Transactions = () => {
+const Transactions = (props) => {
   //getting all transactions of a user
-
+  const transactions = props.transactions;
   return (
     <div>
       <div>
         <h2 className="transaction-h2">Transactions</h2>
         <div className="table">
           <div className="table-row header">
-            <div className="table-cell first">Source</div>
+            <div className="table-cell first">Title</div>
             <div className="table-cell">Amount</div>
             <div className="table-cell">Date</div>
             <div className="table-cell last">Category</div>
@@ -313,10 +325,13 @@ const Home = () => {
               {selectedNumber == 1 ? (
                 <>
                   <Dashboard username={username} transactions={transactions} />
-                  <Recents transactions={transactions} />
+                  <Recents
+                    transactions={transactions}
+                    numFunc={setSelectedNumber}
+                  />
                 </>
               ) : selectedNumber == 2 ? (
-                <Transactions />
+                <Transactions transactions={transactions} />
               ) : (
                 <>
                   <Totals />
