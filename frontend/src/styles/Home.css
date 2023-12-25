@@ -243,6 +243,7 @@ h2{
 .view-all:hover {
   transform: scale(1.15);
   text-shadow: 0 0 0.05rem rgba(0, 0, 0, 0.13);
+  cursor: pointer;
 }
 .welcome-message {
   margin-top: 1rem;
