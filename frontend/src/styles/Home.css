@@ -232,10 +232,6 @@ h2{
   overflow-y: auto;
 }
 
-.graph-img {
-  background-color: #6748d6;
-}
-
 .view-all {
   border: none;
   background-color: transparent;
@@ -255,4 +251,28 @@ h2{
   display: flex;
   justify-content: space-between;
   margin-top: 1rem;
+}
+
+.circle {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+.green-circle {
+  color: rgb(0, 255, 0);
+}
+
+.red-circle {
+  color: rgb(255, 0, 0);
+}
+
+.graph-recent {
+  margin: 0;
+  background-color: #ffffff;
+  padding: 1rem;
+  border-radius: 0.4rem;
+  box-shadow: 0 0 0.7rem rgba(0, 0, 0, 0.13);
+}
+
+.graph-recent:hover {
+  box-shadow: 0 0 0.7rem rgba(0, 0, 0, 0.3);
 }

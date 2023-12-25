@@ -1,6 +1,14 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { LineChart, Line, XAxis, YAxis, CartesianGrid } from "recharts";
+import {
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  Legend,
+} from "recharts";
 import moment from "moment-timezone";
 import Sidebar from "../components/Sidebar.jsx";
 import Tcard from "../components/Tcard.jsx";
@@ -8,6 +16,7 @@ import Transaction from "../components/Transaction.jsx";
 import Navbar2 from "../components/Navbar2.jsx";
 import graph from "../assets/graph.png";
 import "../styles/Home.css";
+import { FaCircle } from "react-icons/fa";
 
 const Recents = (props) => {
   const transactions = props.transactions;
@@ -23,7 +32,7 @@ const Recents = (props) => {
     );
   }
 
-  const recentTransactions = transactions.slice(0, 7);
+  const recentTransactions = transactions.slice(0, 6);
   const handleViewAll = () => {
     setSelectedNumber(2);
   };
@@ -36,49 +45,74 @@ const Recents = (props) => {
           View all
         </button>
       </div>
-      {recentTransactions.map((transaction, index) => {
+      {recentTransactions.map((transaction) => {
         const istDateTime = moment(transaction.date)
           .tz("Asia/Kolkata")
           .format("MMMM DD, YYYY h:mmA");
 
         return (
-          <>
-            <Transaction
-              key={index}
-              title={transaction.title}
-              amount={transaction.amount}
-              time={istDateTime}
-              type={transaction.type}
-            />
-          </>
+          <Transaction
+            key={transaction._id}
+            title={transaction.title}
+            amount={transaction.amount}
+            time={istDateTime}
+            type={transaction.type}
+          />
         );
       })}
     </div>
   );
 };
 const Dashboard = (props) => {
-  const transactions = props.transactions;
-  const expense = [];
-  const income = [];
+  const transactions = props.transactions.slice(0, 6);
+
   transactions.forEach((transaction) => {
-    if (transaction.type === "expense") {
-      expense.push({
-        date: transaction.date.split("T")[0],
-        amount: transaction.amount,
-      });
-    } else if (transaction.type === "income") {
-      income.push({
-        date: transaction.date.split("T")[0],
-        amount: transaction.amount,
-      });
-    }
+    transaction.date = moment(transaction.date)
+      .tz("Asia/Kolkata")
+      .format("MMM DD, HH:mm");
   });
+  const expense = transactions.filter(
+    (transaction) => transaction.type === "expense"
+  );
+  const income = transactions.filter(
+    (transaction) => transaction.type === "income"
+  );
+  const combinedData = transactions
+    .map((transaction) => {
+      const { date } = transaction;
+      const incomeAmount =
+        income.find((item) => item.date === transaction.date)?.amount || 0;
+      const expenseAmount =
+        expense.find((item) => item.date === transaction.date)?.amount || 0;
 
-  const combinedData = [
-    ...income.map((item) => ({ ...item, type: "income" })),
-    ...expense.map((item) => ({ ...item, type: "expense" })),
-  ];
+      return {
+        date,
+        incomeAmount,
+        expenseAmount,
+      };
+    })
+    .filter((data, index, combinedData) => {
+      return index === combinedData.findIndex((t) => t.date === data.date);
+    });
+  // transactions.forEach((transaction) => {
+  //   if (transaction.type === "expense") {
+  //     expense.push({
+  //       date: transaction.date.split("T")[0],
+  //       amount: transaction.amount,
+  //     });
+  //   } else if (transaction.type === "income") {
+  //     income.push({
+  //       date: transaction.date.split("T")[0],
+  //       amount: transaction.amount,
+  //     });
+  //   }
+  // });
 
+  // const combinedData = [
+  //   ...income.map((item) => ({ ...item, type: "income" })),
+  //   ...expense.map((item) => ({ ...item, type: "expense" })),
+  // ];
+  console.log(transactions);
   return (
     <div className="content-text">
       <div className="welcome-message">
@@ -87,30 +121,23 @@ const Dashboard = (props) => {
       </div>
 
       <div className="graph">
-        <img src={graph} className="graph-img" width={750} />
-        {/* <LineChart
-          className="graph-img"
-          width={700}
-          height={400}
+        {/* <img src={graph} className="graph-img" width={750} /> */}
+
+        <LineChart
+          width={730}
+          height={250}
           data={combinedData}
-          margin={{ top: 0, right: 0, bottom: 0, left: 0 }}
+          margin={{ top: 0, right: 0, left: 0, bottom: 0 }}
+          className="graph-recent"
         >
-          <Line
-            type="monotone"
-            dataKey="amount"
-            stroke="#8884d8"
-            data={expense}
-          />
-          <Line
-            type="monotone"
-            dataKey="amount"
-            stroke="#82ca9d"
-            data={expense}
-          />
-          <CartesianGrid stroke="#ccc" className="graph-img" />
-          <XAxis dataKey="date" className="graph-img" />
-          <YAxis className="graph-img" />
-        </LineChart> */}
+          <CartesianGrid />
+          <XAxis dataKey="date" tick={{ fill: "black" }} />
+          <YAxis tick={{ fill: "black" }} />
+          <Tooltip />
+          <Legend />
+          <Line type="monotone" dataKey="incomeAmount" stroke="#00FF00" />
+          <Line type="monotone" dataKey="expenseAmount" stroke="#FF0000" />
+        </LineChart>
       </div>
       <div className="recents">
         <h2>Details</h2>
@@ -127,7 +154,8 @@ const Dashboard = (props) => {
 
 const Transactions = (props) => {
   //getting all transactions of a user
-  const transactions = props.transactions;
+  const transactions_array = props.transactions;
+  console.log(transactions_array);
   return (
     <div>
       <div>
@@ -139,7 +167,37 @@ const Transactions = (props) => {
             <div className="table-cell">Date</div>
             <div className="table-cell last">Category</div>
           </div>
-          <div className="table-row">
+          {/* <div className="table-row">
+            <div className="table-cell first">Amazon</div>
+            <div className="table-cell">1000</div>
+            <div className="table-cell">12/12/2020</div>
+            <div className="table-cell last">Shopping</div>
+          </div> */}
+          {transactions_array.map((transaction) => {
+            return (
+              <div className="table-row">
+                <div className="table-cell first">{transaction.title}</div>
+                <div className="table-cell">
+                  <span>
+                    <FaCircle
+                      className={`circle ${
+                        transaction.type === "income"
+                          ? "green-circle"
+                          : "red-circle"
+                      }`}
+                    />
+                  </span>
+                  {transaction.amount}
+                </div>
+                <div className="table-cell">
+                  {transaction.date.split("T")[0]}
+                </div>
+                <div className="table-cell last">{transaction.category}</div>
+              </div>
+            );
+          })}
+
+          {/* <div className="table-row">
             <div className="table-cell first">Amazon</div>
             <div className="table-cell">1000</div>
             <div className="table-cell">12/12/2020</div>
@@ -150,13 +208,7 @@ const Transactions = (props) => {
             <div className="table-cell">1000</div>
             <div className="table-cell">12/12/2020</div>
             <div className="table-cell last">Shopping</div>
-          </div>
-          <div className="table-row">
-            <div className="table-cell first">Amazon</div>
-            <div className="table-cell">1000</div>
-            <div className="table-cell">12/12/2020</div>
-            <div className="table-cell last">Shopping</div>
-          </div>
+          </div> */}
           {/* Mapping the recentArray as table rows */}
         </div>
       </div>
