@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { Navigate } from "react-router-dom";
 import "../styles/Navbar2.css";
+import { FaUser } from "react-icons/fa";
 import logo from "../assets/5856.jpg";
 const Navbar2 = ({ n1, n2, n3, onSelected }) => {
   const [selectedItem, setSelectedItem] = useState(null);
@@ -46,12 +47,13 @@ const Navbar2 = ({ n1, n2, n3, onSelected }) => {
           </ul>
 
           <ul className="right">
-            <img
+            {/* <img
               src={logo}
               className="logo"
               alt="account icon"
               onClick={toggleDropDown}
-            />
+            /> */}
+            <FaUser className="logo" onClick={toggleDropDown} />
           </ul>
           {showDropDown && (
             <div>

@@ -73,3 +73,9 @@
   box-shadow: 0 0 0.3rem rgba(0, 0, 0, 0.3);
   /* font-weight: 600; */
 }
+
+.logo {
+  color: black;
+  font-size: 0.8rem;
+  margin-right: 1rem;
+}

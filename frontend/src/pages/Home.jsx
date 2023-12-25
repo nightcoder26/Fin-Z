@@ -32,7 +32,7 @@ const Recents = (props) => {
     );
   }
 
-  const recentTransactions = transactions.slice(0, 6);
+  const recentTransactions = transactions.slice(0, 5);
   const handleViewAll = () => {
     setSelectedNumber(2);
   };
