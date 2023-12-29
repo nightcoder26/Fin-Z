@@ -196,7 +196,7 @@ h2{
 
 .table-row:hover {
   /* background-color: #eef0f1; */
-  transform: scale(1.01);
+  transform: scale(1.03);
   transition: 250ms;
   box-shadow: 0 0 0.7rem rgba(0, 0, 0, 0.3);
 }

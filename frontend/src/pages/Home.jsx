@@ -15,6 +15,7 @@ import Tcard from "../components/Tcard.jsx";
 import Transaction from "../components/Transaction.jsx";
 import Navbar2 from "../components/Navbar2.jsx";
 import graph from "../assets/graph.png";
+import Tcard2 from "../components/Tcard2.jsx";
 import "../styles/Home.css";
 import { FaCircle } from "react-icons/fa";
 
@@ -32,7 +33,7 @@ const Recents = (props) => {
     );
   }
 
-  const recentTransactions = transactions.slice(0, 5);
+  const recentTransactions = transactions.slice(-5).reverse();
   const handleViewAll = () => {
     setSelectedNumber(2);
   };
@@ -64,12 +65,12 @@ const Recents = (props) => {
   );
 };
 const Dashboard = (props) => {
-  const transactions = props.transactions.slice(0, 6);
+  const transactions = props.transactions;
 
   transactions.forEach((transaction) => {
     transaction.date = moment(transaction.date)
       .tz("Asia/Kolkata")
-      .format("MMM DD, HH:mm");
+      .format("MMM DD, YYYY");
   });
   const expense = transactions.filter(
     (transaction) => transaction.type === "expense"
@@ -112,7 +113,7 @@ const Dashboard = (props) => {
   //   ...income.map((item) => ({ ...item, type: "income" })),
   //   ...expense.map((item) => ({ ...item, type: "expense" })),
   // ];
-  console.log(transactions);
+  // console.log(transactions);
   return (
     <div className="content-text">
       <div className="welcome-message">
@@ -154,8 +155,11 @@ const Dashboard = (props) => {
 
 const Transactions = (props) => {
   //getting all transactions of a user
-  const transactions_array = props.transactions;
-  console.log(transactions_array);
+  const transactions_array = props.transactions.slice().reverse();
+  const [selectedTransaction, setSelectedTransaction] = useState(null);
+  const handleRowClick = (transactionId) => {
+    setSelectedTransaction(transactionId);
+  };
   return (
     <div>
       <div>
@@ -168,14 +172,18 @@ const Transactions = (props) => {
             <div className="table-cell last">Category</div>
           </div>
           {/* <div className="table-row">
-            <div className="table-cell first">Amazon</div>
-            <div className="table-cell">1000</div>
-            <div className="table-cell">12/12/2020</div>
-            <div className="table-cell last">Shopping</div>
-          </div> */}
+              <div className="table-cell first">Amazon</div>
+              <div className="table-cell">1000</div>
+              <div className="table-cell">12/12/2020</div>
+              <div className="table-cell last">Shopping</div>
+            </div> */}
           {transactions_array.map((transaction) => {
             return (
-              <div className="table-row">
+              <div
+                className="table-row"
+                key={transaction._id}
+                onClick={() => handleRowClick(transaction._id)}
+              >
                 <div className="table-cell first">{transaction.title}</div>
                 <div className="table-cell">
                   <span>
@@ -190,7 +198,11 @@ const Transactions = (props) => {
                   {transaction.amount}
                 </div>
                 <div className="table-cell">
-                  {transaction.date.split("T")[0]}
+                  {transaction.date
+                    .split("T")[0]
+                    .split("-")
+                    .reverse()
+                    .join("-")}
                 </div>
                 <div className="table-cell last">{transaction.category}</div>
               </div>
@@ -387,7 +399,10 @@ const Home = () => {
               ) : (
                 <>
                   <Totals />
-                  <Recents transactions={transactions} />
+                  <Recents
+                    transactions={transactions}
+                    numFunc={setSelectedNumber}
+                  />
                 </>
               )}
             </div>
