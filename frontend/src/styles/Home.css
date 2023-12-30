@@ -213,7 +213,6 @@ h2{
   /* color: #6748d6; */
   color: white;
   background-color: #6748d6;
-
   box-shadow: 0 0 0.1rem #6748d6;
 }
 .header:hover {
@@ -284,4 +283,40 @@ h2{
 
 .graph-recent:hover {
   box-shadow: 0 0 0.7rem rgba(0, 0, 0, 0.3);
+}
+
+.totals-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.totals {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: #6748d6;
+  margin: 1rem;
+  padding: 1rem;
+  border-radius: 0.3rem;
+  width: 20rem;
+  color: #f8fbfd;
+}
+
+.flex-container-totals {
+  display: flex;
+  flex-direction: column;
+}
+.totals:hover {
+  box-shadow: 0 0 0.7rem rgba(0, 0, 0, 0.23);
+  transform: scale(1.03);
+  cursor: pointer;
+}
+.totals h1 {
+  font-size: 2.5rem;
+}
+
+.totals-icons {
+  color: #f8fbfd;
+  font-size: 2rem;
 }

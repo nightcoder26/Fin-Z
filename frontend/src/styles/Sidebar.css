@@ -79,11 +79,11 @@
   }
 } */
 
-.sidebar-link.active {
+/* .sidebar-link.active {
   background-color: lightgray;
   display: block;
-  /* padding: 15px; */
-}
+  padding: 15px;
+} */
 
 .list-items {
   list-style: none;

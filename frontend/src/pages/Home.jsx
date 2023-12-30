@@ -17,7 +17,8 @@ import Navbar2 from "../components/Navbar2.jsx";
 import graph from "../assets/graph.png";
 import Tcard2 from "../components/Tcard2.jsx";
 import "../styles/Home.css";
-import { FaCircle } from "react-icons/fa";
+import { FaCircle, FaBalanceScaleLeft } from "react-icons/fa";
+import { BiSolidUpArrowCircle, BiSolidDownArrowCircle } from "react-icons/bi";
 
 const Recents = (props) => {
   const transactions = props.transactions;
@@ -224,7 +225,7 @@ const Transactions = (props) => {
     </div>
   );
 };
-const Totals = () => {
+const Totals = (props) => {
   // const [totals, setTotals] = useState([]);
   // useEffect(() => {
   //   fetch("http://localhost:4000/api/home/totals", {
@@ -297,8 +298,55 @@ const Totals = () => {
   //     </div>
   //   </div>
   // </div>
+  const transactions = props.transactions;
+  //sum of expenses
+  const expense = transactions.filter(
+    (transaction) => transaction.type === "expense"
+  );
+  let totalExpense = 0;
+  for (let i = 0; i < expense.length; i++) {
+    totalExpense += expense[i].amount;
+  }
+  //sum of income
+  const income = transactions.filter(
+    (transaction) => transaction.type === "income"
+  );
+  let totalIncome = 0;
+  for (let i = 0; i < income.length; i++) {
+    totalIncome += income[i].amount;
+  }
 
-  return <div>Totals</div>;
+  const balance = totalIncome - totalExpense;
+  // console.log(balance);
+  // console.log(totalIncome);
+  // console.log(totalExpense);
+  return (
+    <div>
+      <div className="totals-container">
+        <div className="balance totals">
+          <div className="flex-container-totals">
+            <h3>Total Balance</h3>
+            <h1>₹ {balance}</h1>
+          </div>
+          <FaBalanceScaleLeft className="totals-icons" />
+        </div>
+        <div className="income totals">
+          <div className="flex-container-totals">
+            <h3>Total Income</h3>
+            <h1>₹ {totalIncome}</h1>
+          </div>
+          <BiSolidUpArrowCircle className="totals-icons" />
+        </div>
+        <div className="expense totals">
+          <div className="flex-container-totals">
+            <h3>Total Expense</h3>
+            <h1>₹ {totalExpense}</h1>
+          </div>
+          <BiSolidDownArrowCircle className="totals-icons" />
+        </div>
+      </div>
+    </div>
+  );
 };
 const Home = () => {
   const [username, setUsername] = useState("");
@@ -395,7 +443,7 @@ const Home = () => {
                 <Transactions transactions={transactions} />
               ) : (
                 <>
-                  <Totals />
+                  <Totals transactions={transactions} />
                   <Recents
                     transactions={transactions}
                     numFunc={setSelectedNumber}

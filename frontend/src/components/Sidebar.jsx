@@ -43,7 +43,7 @@ const Sidebar = () => {
         <ul>
           <li
             onClick={() => handleSidebarClick(1)}
-            className={`list-items ${selectedItem === 1 ? "selected" : ""}}`}
+            className={`list-items ${selectedItem === 1 ? " selected" : ""}}`}
             style={{
               backgroundColor: getBgColor("/home"),
             }}
@@ -57,7 +57,7 @@ const Sidebar = () => {
           </li>
           <li
             onClick={() => handleSidebarClick(2)}
-            className={`list-items ${selectedItem === 2 ? "selected" : ""}}`}
+            className={`list-items ${selectedItem === 2 ? " selected" : ""}}`}
             style={{ backgroundColor: getBgColor("/new-entry") }}
             id="new-entry"
           >
@@ -74,7 +74,7 @@ const Sidebar = () => {
 
           <li
             onClick={() => handleSidebarClick(3)}
-            className={`list-items ${selectedItem === 3 ? "selected" : ""}}`}
+            className={`list-items ${selectedItem === 3 ? " selected" : ""}}`}
             style={{ backgroundColor: getBgColor("/category") }}
             id="category"
           >
@@ -86,7 +86,7 @@ const Sidebar = () => {
           </li>
           <li
             onClick={() => handleSidebarClick(4)}
-            className={`list-items ${selectedItem === 4 ? "selected" : ""}}`}
+            className={`list-items ${selectedItem === 4 ? " selected" : ""}}`}
             style={{ backgroundColor: getBgColor("/everything") }}
             id="everything"
           >
@@ -98,7 +98,7 @@ const Sidebar = () => {
           </li>
           <li
             onClick={() => handleSidebarClick(5)}
-            className={`list-items ${selectedItem === 5 ? "selected" : ""}}`}
+            className={`list-items ${selectedItem === 5 ? " selected" : ""}}`}
             style={{ backgroundColor: getBgColor("/settings") }}
             id="settings"
           >
