@@ -125,8 +125,8 @@ const Dashboard = (props) => {
         {/* <img src={graph} className="graph-img" width={750} /> */}
 
         <LineChart
-          width={730}
-          height={250}
+          width={700}
+          height={300}
           data={combinedData}
           margin={{ top: 0, right: 0, left: 0, bottom: 0 }}
           className="graph-recent"
@@ -143,9 +143,6 @@ const Dashboard = (props) => {
       <div className="recents">
         <h2>Details</h2>
         <div className="recent-cards">
-          <Tcard />
-          <Tcard />
-          <Tcard />
           <Tcard />
         </div>
       </div>

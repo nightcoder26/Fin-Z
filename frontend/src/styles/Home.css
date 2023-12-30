@@ -145,10 +145,17 @@ h2{
 .content-text {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  /* justify-content: space-between; */
 }
 
 .content-text h1 {
+  padding-bottom: 1rem;
+}
+.recent-details {
+  border: 0.1rem solid #d8dee4;
+  border-radius: 0.5rem;
+  padding-right: 1rem;
+  padding-left: 0.15rem;
   padding-bottom: 1rem;
 }
 
@@ -245,9 +252,9 @@ h2{
   text-shadow: 0 0 0.05rem rgba(0, 0, 0, 0.13);
   cursor: pointer;
 }
-.welcome-message {
+/* .welcome-message {
   margin-top: 1rem;
-}
+} */
 .recent-container {
   display: flex;
   justify-content: space-between;

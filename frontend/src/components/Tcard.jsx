@@ -1,7 +1,7 @@
 import React from "react";
 import "../styles/Tcard.css";
 const Tcard = () => {
-  return <div className="tcard">Tcard</div>;
+  return <div></div>;
 };
 
 export default Tcard;
