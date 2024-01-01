@@ -87,7 +87,7 @@ const Sidebar = () => {
           <li
             onClick={() => handleSidebarClick(4)}
             className={`list-items ${selectedItem === 4 ? " selected" : ""}}`}
-            style={{ backgroundColor: getBgColor("/everything") }}
+            style={{ backgroundColor: getBgColor("/month") }}
             id="everything"
           >
             <Link to="/month" className="sidebar-link" data-target="">

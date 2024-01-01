@@ -40,7 +40,10 @@ function App() {
           <Route path="/home" element={<Home transactions={transactions} />} />
           {/* <Route path="/year" element={<Year />} />
           <Route path="/daily" element={<Daily />} /> */}
-          <Route path="/month" element={<Month />} />
+          <Route
+            path="/month"
+            element={<Month transactions={transactions} />}
+          />
           <Route path="/new-entry" element={<NewEntry />} />
           {/* <Route path="/week" element={<Week />} /> */}
           <Route path="/" element={<SignUp />} />

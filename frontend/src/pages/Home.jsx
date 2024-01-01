@@ -66,8 +66,11 @@ const Recents = (props) => {
   );
 };
 const Dashboard = (props) => {
-  const transactions = props.transactions;
-
+  const transactions_main = props.transactions;
+  transactions_main.sort((a, b) => {
+    return new Date(a.date) - new Date(b.date);
+  });
+  const transactions = transactions_main.slice(-7).reverse();
   transactions.forEach((transaction) => {
     transaction.date = moment(transaction.date)
       .tz("Asia/Kolkata")
@@ -118,7 +121,10 @@ const Dashboard = (props) => {
   return (
     <div className="content-text">
       <div className="welcome-message">
-        <h1 className="welcome">Hey, {props.username} 👋</h1>
+        <h1 className="welcome">
+          Hey,&nbsp;
+          <span style={{ color: "#6748d6" }}>{props.username}</span> 😁
+        </h1>
         <p className="overview">Here's your overview</p>
       </div>
 

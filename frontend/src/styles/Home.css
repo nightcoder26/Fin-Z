@@ -141,7 +141,13 @@ h2{
   margin-left: 1rem;
   margin-right: 0;
 }
-
+.main-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1em;
+  margin-left: 1em;
+  height: calc(100vh - 100px);
+}
 .content-text {
   display: flex;
   flex-direction: column;

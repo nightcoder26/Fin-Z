@@ -4,7 +4,7 @@ import { Navigate } from "react-router-dom";
 import "../styles/Navbar2.css";
 import { FaUser } from "react-icons/fa";
 import logo from "../assets/5856.jpg";
-const Navbar2 = ({ n1, n2, n3, onSelected }) => {
+const Navbar2 = ({ n1, n2, n3, n4, n5, onSelected }) => {
   const [selectedItem, setSelectedItem] = useState(1);
   const [logout, setLogout] = useState(false);
   const [showDropDown, setShowDropDown] = useState(false);
@@ -44,6 +44,18 @@ const Navbar2 = ({ n1, n2, n3, onSelected }) => {
               onClick={() => handleItemClick(3)}
             >
               {n3}
+            </li>
+            <li
+              className={selectedItem === 4 ? "selected" : ""}
+              onClick={() => handleItemClick(4)}
+            >
+              {n4}
+            </li>
+            <li
+              className={selectedItem === 5 ? "selected" : ""}
+              onClick={() => handleItemClick(5)}
+            >
+              {n5}
             </li>
           </ul>
 
