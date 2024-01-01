@@ -3,7 +3,6 @@ import Navbar2 from "../components/Navbar2.jsx";
 import Sidebar from "../components/Sidebar.jsx";
 import "../styles/NewEntry.css";
 import { useState } from "react";
-import { set } from "mongoose";
 const NewEntry = () => {
   const userId = localStorage.getItem("userId");
   const [selectedNumber, setSelectedNumber] = useState(1);

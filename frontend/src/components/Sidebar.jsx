@@ -93,7 +93,7 @@ const Sidebar = () => {
             <Link to="/month" className="sidebar-link" data-target="">
               {/* <span className="dot"></span> */}
               <img src={everything} width={18} className="list-images" />
-              Analysis
+              Everything
             </Link>
           </li>
           <li

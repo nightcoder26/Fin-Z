@@ -39,9 +39,13 @@
 button.selected-button {
   background-color: #6748d6;
   color: white;
-  transform: scale(1.1);
+  transform: scaleX(1.1);
   box-shadow: 0 0 0.4rem rgba(0, 0, 0, 0.3);
-  transition: all 0.3s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+.category-button:hover {
+  transition: all 0.5s ease-in-out;
+  box-shadow: 0 0 0.4rem rgba(0, 0, 0, 0.5);
 }
 .category-button {
   margin: 0.5rem;
