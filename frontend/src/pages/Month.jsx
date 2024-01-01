@@ -1,5 +1,6 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { FaCircle } from "react-icons/fa";
 import Sidebar from "../components/Sidebar.jsx";
 import Navbar2 from "../components/Navbar2.jsx";
 import moment from "moment-timezone";
@@ -15,11 +16,101 @@ import {
 } from "recharts";
 const Month = (props) => {
   const [selectedItem, setSelectedItem] = useState(1);
+  const today = new Date().toISOString().slice(0, 10);
 
+  const currentYear = new Date().getFullYear();
+  const currentWeek = moment().isoWeek();
+
+  const currentMonth = new Date().toISOString().slice(0, 7);
+
+  const currentYearNumber = new Date().getFullYear();
   const handleNavbarSelectedItem = (number) => {
     setSelectedItem(number);
   };
   const transactions_main = props.transactions;
+  const [selectedDate, setSelectedDate] = useState(""); // State for selected date
+  const [selectedWeek, setSelectedWeek] = useState(""); // State for selected week
+  const [selectedMonth, setSelectedMonth] = useState(""); // State for selected month
+  const [selectedYear, setSelectedYear] = useState(""); // State for selected year
+  const [filteredTransactions, setFilteredTransactions] = useState([]); // State for filtered transactions
+  useEffect(() => {
+    filterTransactionsByDate(selectedDate);
+  }, [selectedDate]);
+
+  // useEffect to filter by selectedWeek
+  useEffect(() => {
+    filterTransactionsByWeek(selectedWeek);
+  }, [selectedWeek]);
+
+  // useEffect to filter by selectedMonth
+  useEffect(() => {
+    filterTransactionsByMonth(selectedMonth);
+  }, [selectedMonth]);
+
+  // useEffect to filter by selectedYear
+  useEffect(() => {
+    filterTransactionsByYear(selectedYear);
+  }, [selectedYear]);
+  const filterTransactionsByDate = (selectedDate) => {
+    // console.log("Selected Date:", selectedDate);
+    const filtered = transactions_main.filter((transaction) => {
+      const transactionDate = moment(transaction.date, "MMM DD, YYYY").format(
+        "YYYY-MM-DD"
+      );
+      // console.log("Transaction Date:", transactionDate);
+      return transactionDate === selectedDate;
+    });
+    // console.log("Filtered Transactions by Date:", filtered);
+    setFilteredTransactions(filtered);
+  };
+
+  const filterTransactionsByWeek = (selectedWeek) => {
+    const [year, weekNumber] = selectedWeek.split("-W");
+    // console.log(selectedWeek);
+    const filtered = transactions_main.filter((transaction) => {
+      const transactionDate = moment(transaction.date, "MMM DD, YYYY");
+
+      // Calculate the ISO week values for the transaction's date
+      const transactionYear = transactionDate.isoWeekYear();
+      const transactionWeekNumber = transactionDate.isoWeek();
+
+      return (
+        transactionWeekNumber === parseInt(weekNumber) &&
+        transactionYear === parseInt(year)
+      );
+    });
+
+    setFilteredTransactions([...filtered]); // Create a new array for filteredTransactions
+    console.log(filtered);
+  };
+
+  const filterTransactionsByMonth = (selectedMonth) => {
+    const [year, month] = selectedMonth.split("-");
+
+    const filtered = transactions_main.filter((transaction) => {
+      const transactionDate = moment(transaction.date, "MMM DD, YYYY");
+      const transactionYear = transactionDate.year();
+      const transactionMonth = transactionDate.month() + 1; // January is 0
+
+      return (
+        transactionYear === parseInt(year) &&
+        transactionMonth === parseInt(month)
+      );
+    });
+
+    setFilteredTransactions([...filtered]); // Update filteredTransactions state
+  };
+
+  const filterTransactionsByYear = (selectedYear) => {
+    const filtered = transactions_main.filter((transaction) => {
+      const transactionDate = new Date(transaction.date);
+      const transactionYear = transactionDate.getFullYear();
+      return transactionYear === parseInt(selectedYear);
+    });
+
+    setFilteredTransactions(filtered);
+  };
+
   transactions_main.sort((a, b) => {
     return new Date(a.date) - new Date(b.date);
   });
@@ -96,13 +187,242 @@ const Month = (props) => {
               </div>
             </div>
           ) : selectedItem === 2 ? (
-            <div>Day</div>
+            <>
+              <div className="main-table">
+                <div className="date-divs">
+                  <h1>Date</h1>
+                  <input
+                    type="date"
+                    value={selectedDate}
+                    defaultValue={today}
+                    onChange={(e) => {
+                      setSelectedDate(e.target.value);
+                      filterTransactionsByDate(e.target.value);
+                    }}
+                  />
+                </div>
+                <div className="table">
+                  <div className="table-row header">
+                    <div className="table-cell first">Title</div>
+                    <div className="table-cell">Amount</div>
+                    <div className="table-cell">Date</div>
+                    <div className="table-cell last">Category</div>
+                  </div>
+                  {filteredTransactions.map((transaction) => {
+                    return (
+                      <div
+                        className="table-row"
+                        key={transaction._id}
+                        onClick={() => handleRowClick(transaction._id)}
+                      >
+                        <div className="table-cell first">
+                          {transaction.title}
+                        </div>
+                        <div className="table-cell">
+                          <span>
+                            <FaCircle
+                              className={`circle ${
+                                transaction.type === "income"
+                                  ? "green-circle"
+                                  : "red-circle"
+                              }`}
+                            />
+                          </span>
+                          {transaction.amount}
+                        </div>
+                        <div className="table-cell">
+                          {transaction.date
+                            .split("T")[0]
+                            .split("-")
+                            .reverse()
+                            .join("-")}
+                        </div>
+                        <div className="table-cell last">
+                          {transaction.category}
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            </>
           ) : selectedItem === 3 ? (
-            <div>Week</div>
+            <div className="main-table">
+              <div className="date-divs">
+                <h1>Week</h1>
+                <input
+                  type="week"
+                  value={selectedWeek}
+                  defaultValue={`${currentYear}-W${currentWeek}`}
+                  onChange={(e) => {
+                    setSelectedWeek(e.target.value);
+                    filterTransactionsByWeek(e.target.value);
+                  }}
+                />
+              </div>
+              <div className="table">
+                <div className="table-row header">
+                  <div className="table-cell first">Title</div>
+                  <div className="table-cell">Amount</div>
+                  <div className="table-cell">Date</div>
+                  <div className="table-cell last">Category</div>
+                </div>
+                {filteredTransactions.map((transaction) => {
+                  return (
+                    <div
+                      className="table-row"
+                      key={transaction._id}
+                      onClick={() => handleRowClick(transaction._id)}
+                    >
+                      <div className="table-cell first">
+                        {transaction.title}
+                      </div>
+                      <div className="table-cell">
+                        <span>
+                          <FaCircle
+                            className={`circle ${
+                              transaction.type === "income"
+                                ? "green-circle"
+                                : "red-circle"
+                            }`}
+                          />
+                        </span>
+                        {transaction.amount}
+                      </div>
+                      <div className="table-cell">
+                        {transaction.date
+                          .split("T")[0]
+                          .split("-")
+                          .reverse()
+                          .join("-")}
+                      </div>
+                      <div className="table-cell last">
+                        {transaction.category}
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
           ) : selectedItem === 4 ? (
-            <div>Month</div>
+            <div className="main-table">
+              <div className="date-divs">
+                <h1>Month</h1>
+                <input
+                  type="month"
+                  value={selectedMonth}
+                  defaultValue={currentMonth}
+                  onChange={(e) => {
+                    setSelectedMonth(e.target.value);
+                    filterTransactionsByMonth(e.target.value);
+                  }}
+                />
+              </div>
+              <div className="table">
+                <div className="table-row header">
+                  <div className="table-cell first">Title</div>
+                  <div className="table-cell">Amount</div>
+                  <div className="table-cell">Date</div>
+                  <div className="table-cell last">Category</div>
+                </div>
+                {filteredTransactions.map((transaction) => {
+                  return (
+                    <div
+                      className="table-row"
+                      key={transaction._id}
+                      onClick={() => handleRowClick(transaction._id)}
+                    >
+                      <div className="table-cell first">
+                        {transaction.title}
+                      </div>
+                      <div className="table-cell">
+                        <span>
+                          <FaCircle
+                            className={`circle ${
+                              transaction.type === "income"
+                                ? "green-circle"
+                                : "red-circle"
+                            }`}
+                          />
+                        </span>
+                        {transaction.amount}
+                      </div>
+                      <div className="table-cell">
+                        {transaction.date
+                          .split("T")[0]
+                          .split("-")
+                          .reverse()
+                          .join("-")}
+                      </div>
+                      <div className="table-cell last">
+                        {transaction.category}
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
           ) : (
-            <div>Year</div>
+            <div className="main-table">
+              <div className="date-divs">
+                <h1>Year</h1>
+                <input
+                  type="number"
+                  min="1900"
+                  max="2099"
+                  step="1"
+                  defaultValue={currentYearNumber}
+                  value={selectedYear}
+                  onChange={(e) => {
+                    setSelectedYear(e.target.value);
+                    filterTransactionsByYear(e.target.value);
+                  }}
+                />
+              </div>
+              <div className="table">
+                <div className="table-row header">
+                  <div className="table-cell first">Title</div>
+                  <div className="table-cell">Amount</div>
+                  <div className="table-cell">Date</div>
+                  <div className="table-cell last">Category</div>
+                </div>
+                {filteredTransactions.map((transaction) => {
+                  return (
+                    <div
+                      className="table-row"
+                      key={transaction._id}
+                      onClick={() => handleRowClick(transaction._id)}
+                    >
+                      <div className="table-cell first">
+                        {transaction.title}
+                      </div>
+                      <div className="table-cell">
+                        <span>
+                          <FaCircle
+                            className={`circle ${
+                              transaction.type === "income"
+                                ? "green-circle"
+                                : "red-circle"
+                            }`}
+                          />
+                        </span>
+                        {transaction.amount}
+                      </div>
+                      <div className="table-cell">
+                        {transaction.date
+                          .split("T")[0]
+                          .split("-")
+                          .reverse()
+                          .join("-")}
+                      </div>
+                      <div className="table-cell last">
+                        {transaction.category}
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
           )}
         </div>
       </div>
