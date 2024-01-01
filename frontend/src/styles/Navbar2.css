@@ -51,7 +51,10 @@
   color: #6748d6;
   font-weight: 600;
 }
-
+/* .navbar ul li:first-child {
+  color: #6748d6;
+  font-weight: 600;
+} */
 #logout-button {
   font-family: "poppins", sans-serif !important;
   background-color: #6748d6;

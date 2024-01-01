@@ -348,31 +348,32 @@ const Totals = (props) => {
     </div>
   );
 };
-const Home = () => {
+const Home = (props) => {
   const [username, setUsername] = useState("");
-  const [transactions, setTransactions] = useState([]);
+  // const [transactions, setTransactions] = useState([]);
   const userId = localStorage.getItem("userId");
-  useEffect(() => {
-    try {
-      fetch(`http://localhost:4000/api/transactions/${userId}`, {
-        method: "GET",
-      })
-        .then((response) => {
-          if (!response.ok) {
-            throw new Error("Network response was not ok");
-          }
-          return response.json();
-        })
-        .then((data) => {
-          setTransactions(data);
-        })
-        .catch((error) => {
-          console.error("Error fetching data:", error);
-        });
-    } catch (error) {
-      console.error("Error fetching data:", error);
-    }
-  }, []);
+  // useEffect(() => {
+  //   try {
+  //     fetch(`http://localhost:4000/api/transactions/${userId}`, {
+  //       method: "GET",
+  //     })
+  //       .then((response) => {
+  //         if (!response.ok) {
+  //           throw new Error("Network response was not ok");
+  //         }
+  //         return response.json();
+  //       })
+  //       .then((data) => {
+  //         setTransactions(data);
+  //       })
+  //       .catch((error) => {
+  //         console.error("Error fetching data:", error);
+  //       });
+  //   } catch (error) {
+  //     console.error("Error fetching data:", error);
+  //   }
+  // }, []);
+  const transactions = props.transactions;
   useEffect(() => {
     const storedUsername = localStorage.getItem("username");
     if (storedUsername) {

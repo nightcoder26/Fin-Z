@@ -5,7 +5,7 @@ import "../styles/Navbar2.css";
 import { FaUser } from "react-icons/fa";
 import logo from "../assets/5856.jpg";
 const Navbar2 = ({ n1, n2, n3, onSelected }) => {
-  const [selectedItem, setSelectedItem] = useState(null);
+  const [selectedItem, setSelectedItem] = useState(1);
   const [logout, setLogout] = useState(false);
   const [showDropDown, setShowDropDown] = useState(false);
   const toggleDropDown = () => {
@@ -19,8 +19,9 @@ const Navbar2 = ({ n1, n2, n3, onSelected }) => {
     localStorage.removeItem("username");
     setLogout(true);
   };
+
   return (
-    <div>
+    <div style={{ zIndex: "2" }}>
       {logout ? (
         <Navigate to="/" replace />
       ) : (

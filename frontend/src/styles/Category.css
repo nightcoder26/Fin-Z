@@ -1,0 +1,65 @@
+.sidebar {
+  width: 15vw;
+  z-index: 3;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.total-category {
+  display: flex;
+  height: 100vh;
+}
+
+.categories {
+  margin-top: 5rem;
+  margin-left: 2rem;
+  width: calc(100% - 3vw);
+  border: #f1f3f5 0.05rem solid;
+  box-shadow: 0 0 0.4rem rgba(0, 0, 0, 0.13);
+  border-radius: 0.3rem;
+}
+.charts-pie {
+  margin-left: 2rem;
+  flex: 1;
+}
+
+.charts-pie h2 {
+  text-align: center;
+  color: #6748d6;
+  margin: 0.5rem;
+}
+.all-pies {
+  display: flex;
+  justify-content: space-evenly;
+}
+button.selected-button {
+  background-color: #6748d6;
+  color: white;
+  transform: scale(1.1);
+  box-shadow: 0 0 0.4rem rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease-in-out;
+}
+.category-button {
+  margin: 0.5rem;
+  border: none;
+  /* border: #f1f3f5 0.1rem solid; */
+  box-shadow: 0 0 0.4rem rgba(0, 0, 0, 0.13);
+  padding: 0.5rem;
+  font-family: "Poppins";
+  font-weight: 500;
+  font-size: 1rem;
+  background-color: #f8fbfd;
+  color: #6748d6;
+  border-radius: 0.3rem;
+}
+
+.pie-charts {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-evenly; */
+  align-items: center;
+}
