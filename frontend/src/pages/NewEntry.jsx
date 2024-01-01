@@ -74,121 +74,107 @@ const NewEntry = () => {
       <div className="content">
         <Navbar2 n1="New-Entry" onSelected={handleNavbarSelectedItem} />
         <div className="new-entry-form">
-          <form onSubmit={handleSubmit}>
-            <h1>New Entry</h1>
-            <div className="form-group">
-              <label htmlFor="title">Title</label>
-              <input
-                value={formData.title}
-                onChange={handleInputChange}
-                type="text"
-                id="title"
-                name="title"
-              />
+          <form onSubmit={handleSubmit} className="our-form">
+            <div className="left-form">
+              <h1>New Entry</h1>
+              <div className="form-group ">
+                <label htmlFor="title">Title</label>
+                <input
+                  value={formData.title}
+                  onChange={handleInputChange}
+                  type="text"
+                  id="title"
+                  name="title"
+                />
+              </div>
+
+              <div className="form-group">
+                <label htmlFor="description">Description</label>
+                <textarea
+                  id="description"
+                  rows="4"
+                  value={formData.description}
+                  onChange={handleInputChange}
+                  name="description"
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="date">Date</label>
+                <input
+                  value={formData.date}
+                  onChange={handleInputChange}
+                  type="datetime-local"
+                  id="date"
+                  name="date"
+                />
+              </div>
             </div>
 
-            <div className="form-group">
-              <label htmlFor="description">Description</label>
-              <textarea
-                id="description"
-                rows="4"
-                value={formData.description}
-                onChange={handleInputChange}
-                name="description"
-              />
-            </div>
-            <div className="form-group">
-              <label htmlFor="date">Date</label>
-              <input
-                value={formData.date}
-                onChange={handleInputChange}
-                type="datetime-local"
-                id="date"
-                name="date"
-              />
-            </div>
-            {/* <div className="form-group">
-              <label htmlFor="income">
-                <input
-                  type="radio"
-                  id="income"
-                  name="type"
-                  value="income"
-                  checked={formData.type === "income"}
-                  onChange={handleRadioChange}
-                />
-                Income
-              </label>
-              <label htmlFor="expense">
-                <input
-                  type="radio"
-                  id="expense"
-                  name="type"
-                  value="expense"
-                  checked={formData.type === "expense"}
-                  onChange={handleRadioChange}
-                />
-                Expense
-              </label>
-            </div> */}
-            <div className="form-group">
-              <label htmlFor="income">
-                <input
-                  type="radio"
-                  id="income"
-                  name="type"
-                  value="income"
-                  checked={formData.type === "income"}
-                  onChange={handleRadioChange}
-                />
-                Income
-              </label>
-            </div>
-            <div className="form-group">
-              <label htmlFor="expense">
-                <input
-                  type="radio"
-                  id="expense"
-                  name="type"
-                  value="expense"
-                  checked={formData.type === "expense"}
-                  onChange={handleRadioChange}
-                />
-                Expense
-              </label>
-            </div>
+            <div className="right-form">
+              <div className="radio-main">
+                <div className="form-group radio">
+                  <label htmlFor="income">
+                    <input
+                      type="radio"
+                      id="income"
+                      name="type"
+                      value="income"
+                      checked={formData.type === "income"}
+                      onChange={handleRadioChange}
+                    />
+                    Income
+                  </label>
+                </div>
+                <div className="form-group radio">
+                  <label htmlFor="expense">
+                    <input
+                      type="radio"
+                      id="expense"
+                      name="type"
+                      value="expense"
+                      checked={formData.type === "expense"}
+                      onChange={handleRadioChange}
+                    />
+                    Expense
+                  </label>
+                </div>
+              </div>
+              <div className="form-group">
+                <label htmlFor="category">Category</label>
+                <select
+                  id="category"
+                  value={formData.category}
+                  onChange={handleCategoryChange}
+                  name="category"
+                >
+                  <option value="salary">Salary</option>
+                  <option value="rent">Rent</option>
+                  <option value="groceries">Groceries</option>
+                  <option value="bills">Bills</option>
+                  <option value="others">Others</option>
+                </select>
+              </div>
 
-            <div className="form-group">
-              <label htmlFor="category">Category</label>
-              <select
-                id="category"
-                value={formData.category}
-                onChange={handleCategoryChange}
-                name="category"
-              >
-                <option value="salary">Salary</option>
-                <option value="rent">Rent</option>
-                <option value="groceries">Groceries</option>
-                <option value="bills">Bills</option>
-                <option value="others">Others</option>
-              </select>
-            </div>
-
-            <div className="form-group">
-              <label htmlFor="amount">Amount</label>
-              <input
-                value={formData.amount}
-                onChange={handleInputChange}
-                type="number"
-                id="amount"
-                name="amount"
-              />
-            </div>
-            <div className="form-group">
-              <button type="submit">Submit</button>
-            </div>
-            <div className="form-group">
-              <p>{text}</p>
+              <div className="form-group">
+                <label htmlFor="amount">Amount</label>
+                <input
+                  value={formData.amount}
+                  onChange={handleInputChange}
+                  type="number"
+                  id="amount"
+                  name="amount"
+                />
+              </div>
+              <div className="form-group">
+                <button type="submit" className="submit">
+                  {" "}
+                  {/* Submit button*/}
+                  Submit
+                </button>
+              </div>
+              <div className="form-group">
+                <p>{text}</p>
+              </div>
             </div>
           </form>
         </div>

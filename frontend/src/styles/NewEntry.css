@@ -1,10 +1,89 @@
 /* input[type="radio"] {
   display: none;
 } */
-
+body {
+  font-family: "Poppins";
+}
 .new-entry-form {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 5rem;
+  margin-top: 3.5rem;
+}
+
+.new-entry-form {
+  background-color: #f8fbfd;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+}
+.radio-main {
+  display: flex;
+  flex-direction: row;
+}
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-family: "Poppins";
+}
+.form-group textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.form-group select {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-family: "Poppins";
+}
+
+.new-entry-form {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.left-form {
+  /* Adjust the width to fit two forms side by side */
+  /* Ensure padding and border are included in the width */
+  display: flex;
+  flex-direction: column;
+  /* margin-top: rem; */
+  padding: 2rem;
+}
+
+.right-form {
+  /* Adjust the width to fit two forms side by side */
+  /* Ensure padding and border are included in the width */
+  display: flex;
+  flex-direction: column;
+  margin-top: 3rem;
+  padding: 3rem;
+}
+.our-form {
+  display: flex;
+  flex-wrap: wrap; /* Allow forms to wrap if container width is exceeded */
+  justify-content: space-between;
+}
+
+.submit {
+  border: none;
+  font-family: "Poppins";
+  padding: 0.5rem;
+  background-color: #6748d6;
+  color: #f8fbfd;
+  border-radius: 0.3rem;
 }
