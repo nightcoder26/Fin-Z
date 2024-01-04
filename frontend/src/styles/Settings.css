@@ -1,0 +1,9 @@
+.main-content-settings {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  z-index: 1;
+}
+.sidebar-settings {
+  z-index: 5;
+}

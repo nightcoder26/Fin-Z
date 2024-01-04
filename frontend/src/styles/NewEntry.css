@@ -57,8 +57,6 @@ body {
   justify-content: space-between;
 }
 .left-form {
-  /* Adjust the width to fit two forms side by side */
-  /* Ensure padding and border are included in the width */
   display: flex;
   flex-direction: column;
   /* margin-top: rem; */
@@ -66,8 +64,6 @@ body {
 }
 
 .right-form {
-  /* Adjust the width to fit two forms side by side */
-  /* Ensure padding and border are included in the width */
   display: flex;
   flex-direction: column;
   margin-top: 3rem;
@@ -75,7 +71,7 @@ body {
 }
 .our-form {
   display: flex;
-  flex-wrap: wrap; /* Allow forms to wrap if container width is exceeded */
+  flex-wrap: wrap;
   justify-content: space-between;
 }
 

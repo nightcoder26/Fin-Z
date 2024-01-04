@@ -9,6 +9,7 @@ import Login from "./pages/Login.jsx";
 import Category from "./pages/Category.jsx";
 import SignUp from "./pages/Signup.jsx";
 import "./App.css";
+import Settings from "./pages/Settings.jsx";
 function App() {
   const userId = localStorage.getItem("userId");
   const [transactions, setTransactions] = useState([]);
@@ -52,6 +53,7 @@ function App() {
             element={<Category transactions={transactions} />}
           />
           <Route path="/login" element={<Login />} />
+          <Route path="/settings" element={<Settings />} />
         </Routes>
       </BrowserRouter>
     </>
