@@ -147,7 +147,7 @@ For updates, events, and highlights from the Milestone Club, follow us on [Insta
 </a>
 
 
-### Contribution Guidelines
+## Contribution Guidelines
 
 Please read our [Contribution Guidelines](CONTRIBUTING.md) before contributing to this project.
 
