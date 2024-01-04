@@ -151,5 +151,9 @@ For updates, events, and highlights from the Milestone Club, follow us on [Insta
 
 Please read our [Contribution Guidelines](CONTRIBUTING.md) before contributing to this project.
 
+## License
+This project is licensed under the [MIT License](LICENSE) - see the [LICENSE](LICENSE) file for details.
+
+
 
 
