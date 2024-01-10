@@ -125,6 +125,7 @@ const Settings = ({ userId }) => {
           >
             {deleteClicked ? "Deleting..." : "Delete account"}
           </button>
+          <p>{text}</p>
         </div>
       </div>
     </div>
