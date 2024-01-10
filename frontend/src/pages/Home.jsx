@@ -19,6 +19,7 @@ import Tcard2 from "../components/Tcard2.jsx";
 import "../styles/Home.css";
 import { FaCircle, FaBalanceScaleLeft } from "react-icons/fa";
 import { BiSolidUpArrowCircle, BiSolidDownArrowCircle } from "react-icons/bi";
+import { TbCashBanknoteOff } from "react-icons/tb";
 
 const Recents = (props) => {
   const transactions = props.transactions;
@@ -28,7 +29,16 @@ const Recents = (props) => {
       <div className="recent-details">
         <h2 className="recent-1">Recent Transactions</h2>
         <p className="empty">
-          Wow, Such empty. <br /> Add a new income/expense
+          Wow, Such empty.
+          <br />
+          <br />
+          <div className="notes-strike-icon">
+            <TbCashBanknoteOff />
+          </div>
+          <br />
+          Add a new income/expense
+          <br />
+          in new-entry page 😁
         </p>
       </div>
     );
@@ -70,7 +80,7 @@ const Dashboard = (props) => {
   transactions_main.sort((a, b) => {
     return new Date(a.date) - new Date(b.date);
   });
-  const transactions = transactions_main.slice(-7).reverse();
+  const transactions = transactions_main.slice(-7);
   transactions.forEach((transaction) => {
     transaction.date = moment(transaction.date)
       .tz("Asia/Kolkata")

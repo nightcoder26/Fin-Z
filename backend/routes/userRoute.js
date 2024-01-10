@@ -16,8 +16,24 @@ router.post("/", async (req, res) => {
     if (oldUser) {
       return res.status(400).json({ message: "User already exists" });
     }
+    const defaultExpenseCategories = [
+      "Textbooks and Supplies",
+      "Rent",
+      "Groceries",
+      "Transportation",
+      "Eating Out",
+    ];
+
+    const defaultIncomeCategories = [
+      "Part-Time Job",
+      "Scholarship",
+      "Pocket money",
+      "Internship Stipend",
+    ];
 
     const newUser = new User({ username, password });
+    newUser.expenseCategories = defaultExpenseCategories;
+    newUser.incomeCategories = defaultIncomeCategories;
     await newUser.save();
 
     res.status(201).json({
@@ -50,5 +66,31 @@ router.post("/login", async (req, res) => {
     res.status(500).json({ message: "Internal server error" });
   }
 });
+
+// post a new category
+// POST request to update categories for a user
+// router.post("/:userId/categories", async (req, res) => {
+//   const userId = req.params.userId;
+//   const { expenseCategories, incomeCategories } = req.body;
+
+//   try {
+//     const user = await User.findById(userId);
+//     if (!user) {
+//       return res.status(404).json({ message: "User not found" });
+//     }
+//     user.expenseCategories = expenseCategories;
+//     user.incomeCategories = incomeCategories;
+//     await user.save();
+//     res.status(200).json({
+//       message: "Categories updated successfully",
+
+//       expenseCategories: user.expenseCategories,
+//       incomeCategories: user.incomeCategories,
+//     });
+//   } catch (error) {
+//     console.log("Error fetching categories:", error);
+//     res.status(500).json({ message: "Internal server error" });
+//   }
+// });
 
 module.exports = router;

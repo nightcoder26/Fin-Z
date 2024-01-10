@@ -7,15 +7,7 @@ import { PieChart, Pie, Legend, Tooltip, Cell } from "recharts";
 import "../styles/Category.css";
 const Category = (props) => {
   // const buttons = ["others", "Button 2", "Button 3"];
-  const COLORS = [
-    "#4d3aae",
-    "#6748d6",
-    "#7f5fe4",
-    "#9977f2",
-    "#b395ff",
-    "#cca3ff",
-    "#e5c0ff",
-  ];
+  const COLORS = ["#a184ff", "#361fa3", "#7c5bff", "#4d3799", "#8f6eff"];
 
   const [selectedButton, setSelectedButton] = useState(0);
   const transactions = props.transactions.slice().reverse();
@@ -122,32 +114,6 @@ const Category = (props) => {
                   <h2>All</h2>
                   <div className="all-pies">
                     <div className="single-pie">
-                      <h2>Expenses</h2>
-                      <PieChart width={445} height={445}>
-                        <Pie
-                          data={expensesChartData}
-                          dataKey="value"
-                          nameKey="name"
-                          cx="50%"
-                          cy="50%"
-                          outerRadius={150}
-                          fill="#8884d8"
-                          label
-                          labelLine={false}
-                          legendType="circle"
-                        >
-                          {expensesChartData.map((entry, index) => (
-                            <Cell
-                              key={`cell-${index}`}
-                              fill={COLORS[index % COLORS.length]}
-                            />
-                          ))}
-                        </Pie>
-                        <Tooltip />
-                        <Legend />
-                      </PieChart>
-                    </div>
-                    <div className="single-pie">
                       <h2>Income</h2>
                       <PieChart width={445} height={445}>
                         <Pie
@@ -163,6 +129,32 @@ const Category = (props) => {
                           legendType="circle"
                         >
                           {incomeChartData.map((entry, index) => (
+                            <Cell
+                              key={`cell-${index}`}
+                              fill={COLORS[index % COLORS.length]}
+                            />
+                          ))}
+                        </Pie>
+                        <Tooltip />
+                        <Legend />
+                      </PieChart>
+                    </div>
+                    <div className="single-pie">
+                      <h2>Expenses</h2>
+                      <PieChart width={445} height={445}>
+                        <Pie
+                          data={expensesChartData}
+                          dataKey="value"
+                          nameKey="name"
+                          cx="50%"
+                          cy="50%"
+                          outerRadius={150}
+                          fill="#8884d8"
+                          label
+                          labelLine={false}
+                          legendType="circle"
+                        >
+                          {expensesChartData.map((entry, index) => (
                             <Cell
                               key={`cell-${index}`}
                               fill={COLORS[index % COLORS.length]}

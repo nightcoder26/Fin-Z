@@ -45,7 +45,7 @@ function App() {
             path="/month"
             element={<Month transactions={transactions} />}
           />
-          <Route path="/new-entry" element={<NewEntry />} />
+          <Route path="/new-entry" element={<NewEntry userId={userId} />} />
           {/* <Route path="/week" element={<Week />} /> */}
           <Route path="/" element={<SignUp />} />
           <Route
