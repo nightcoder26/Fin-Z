@@ -234,7 +234,7 @@ const Transactions = (props) => {
               <div className="table-cell">12/12/2020</div>
               <div className="table-cell last">Shopping</div>
             </div> */}
-          {transactions.map((transaction) => {
+          {transactions_array.map((transaction) => {
             return (
               <div
                 className="table-row"

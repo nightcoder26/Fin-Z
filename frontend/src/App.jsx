@@ -12,6 +12,7 @@ import "./App.css";
 import Settings from "./pages/Settings.jsx";
 function App() {
   const userId = localStorage.getItem("userId");
+  console.log(userId);
   const [transactions, setTransactions] = useState([]);
   useEffect(() => {
     try {
@@ -26,6 +27,7 @@ function App() {
         })
         .then((data) => {
           setTransactions(data);
+          console.log(data);
         })
         .catch((error) => {
           console.error("Error fetching data:", error);
