@@ -42,8 +42,22 @@ const NewEntry = ({ userId }) => {
   //     console.error("Error updating categories:", error);
   //   }
   // };
-  const expenseCategories = ["rent", "groceries", "bills", "others"];
-  const incomeCategories = ["salary", "others"];
+  const expenseCategories = [
+    "Education",
+    "Food",
+    "Transportation",
+    "Entertainment",
+    "Clothing",
+    "Tuition Fees",
+    "Personal Care",
+    "Miscellaneous",
+  ];
+  const incomeCategories = [
+    "Pocket money",
+    "Scholarships",
+    "Internship/Stipend",
+    "Part-time",
+  ];
   const handleNavbarSelectedItem = (number) => {
     setSelectedNumber(number);
   };
@@ -130,7 +144,11 @@ const NewEntry = ({ userId }) => {
         <Sidebar />
       </div>
       <div className="content">
-        <Navbar2 n1="New-Entry" onSelected={handleNavbarSelectedItem} />
+        <Navbar2
+          n1="New-Entry"
+          onSelected={handleNavbarSelectedItem}
+          className="navbar-settings"
+        />
         <div className="new-entry-form">
           <div className="form-wrapper">
             <form onSubmit={handleSubmit} className="form-2">

@@ -92,5 +92,63 @@ router.post("/login", async (req, res) => {
 //     res.status(500).json({ message: "Internal server error" });
 //   }
 // });
+router.delete("/:userId", async (req, res) => {
+  const userId = req.params.userId;
+
+  try {
+    const deletedUser = await User.findByIdAndDelete(userId);
+    if (!deletedUser) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    res.status(200).json({ message: "User deleted successfully" });
+  } catch (error) {
+    console.error("Error deleting user:", error);
+    res.status(500).json({ message: "Internal server error" });
+  }
+});
+
+// Update username
+router.patch("/:userId/username", async (req, res) => {
+  const userId = req.params.userId;
+  const { newUsername } = req.body;
+
+  try {
+    const user = await User.findByIdAndUpdate(
+      userId,
+      { username: newUsername },
+      { new: true }
+    );
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    res.status(200).json({ message: "Username updated successfully" });
+  } catch (error) {
+    console.error("Error updating username:", error);
+    res.status(500).json({ message: "Internal server error" });
+  }
+});
+
+// Update password
+router.patch("/:userId/password", async (req, res) => {
+  const userId = req.params.userId;
+  const { newPassword } = req.body;
+
+  try {
+    const user = await User.findById(userId);
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    user.password = newPassword;
+    await user.save();
+
+    res.status(200).json({ message: "Password updated successfully" });
+  } catch (error) {
+    console.error("Error updating password:", error);
+    res.status(500).json({ message: "Internal server error" });
+  }
+});
 
 module.exports = router;

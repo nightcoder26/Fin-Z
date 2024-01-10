@@ -53,7 +53,7 @@ function App() {
             element={<Category transactions={transactions} />}
           />
           <Route path="/login" element={<Login />} />
-          <Route path="/settings" element={<Settings />} />
+          <Route path="/settings" element={<Settings userId={userId} />} />
         </Routes>
       </BrowserRouter>
     </>

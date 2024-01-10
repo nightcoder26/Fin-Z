@@ -46,4 +46,23 @@ router.get("/:userId", async (req, res) => {
     console.log("error fetching transactions of this user", error);
   }
 });
+
+// DELETE a specific transaction by ID
+router.delete("/:transactionId", async (req, res) => {
+  try {
+    const transactionId = req.params.transactionId;
+
+    const transaction = await Transaction.findById(transactionId);
+    if (!transaction) {
+      return res.status(404).json({ message: "Transaction not found" });
+    }
+
+    await Transaction.findByIdAndDelete(transactionId);
+
+    res.status(200).json({ message: "Transaction deleted successfully" });
+  } catch (error) {
+    console.error("Error deleting transaction:", error);
+    res.status(500).json({ message: "Internal server error" });
+  }
+});
 module.exports = router;

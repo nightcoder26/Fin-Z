@@ -20,6 +20,7 @@ import "../styles/Home.css";
 import { FaCircle, FaBalanceScaleLeft } from "react-icons/fa";
 import { BiSolidUpArrowCircle, BiSolidDownArrowCircle } from "react-icons/bi";
 import { TbCashBanknoteOff } from "react-icons/tb";
+import { MdDelete } from "react-icons/md";
 
 const Recents = (props) => {
   const transactions = props.transactions;
@@ -157,22 +158,64 @@ const Dashboard = (props) => {
           <Line type="monotone" dataKey="expenseAmount" stroke="#FF0000" />
         </LineChart>
       </div>
-      <div className="recents">
+      {/* <div className="recents">
         <h2>Details</h2>
         <div className="recent-cards">
           <Tcard />
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };
 
 const Transactions = (props) => {
   //getting all transactions of a user
+
   const transactions_array = props.transactions.slice().reverse();
   const [selectedTransaction, setSelectedTransaction] = useState(null);
+  const [transactions, setTransactions] = useState(props.transactions);
+
   const handleRowClick = (transactionId) => {
     setSelectedTransaction(transactionId);
+  };
+  const handleDelete = async (id) => {
+    console.log("delete");
+    // const handleDelete = async (transactionId) => {
+    //   try {
+    //     const response = await fetch(`http://localhost:4000/api/transactions/${transactionId}`, {
+    //       method: "DELETE",
+    //     });
+
+    //     if (response.ok) {
+    //       console.log("Transaction deleted successfully");
+    //       // Optionally, update your UI or state to reflect the deletion
+    //     } else {
+    //       console.error("Failed to delete transaction");
+    //     }
+    //   } catch (error) {
+    //     console.error("Error deleting transaction:", error);
+    //   }
+    // };
+    try {
+      const response = await fetch(
+        `http://localhost:4000/api/transactions/${id}`,
+        {
+          method: "DELETE",
+        }
+      );
+
+      if (response.ok) {
+        console.log("Transaction deleted successfully");
+        const updatedTransactions = transactions.filter(
+          (transaction) => transaction._id !== id
+        );
+        setTransactions(updatedTransactions);
+      } else {
+        console.error("Failed to delete transaction");
+      }
+    } catch (error) {
+      console.error("Error deleting transaction:", error);
+    }
   };
   return (
     <div>
@@ -191,7 +234,7 @@ const Transactions = (props) => {
               <div className="table-cell">12/12/2020</div>
               <div className="table-cell last">Shopping</div>
             </div> */}
-          {transactions_array.map((transaction) => {
+          {transactions.map((transaction) => {
             return (
               <div
                 className="table-row"
@@ -219,6 +262,9 @@ const Transactions = (props) => {
                     .join("-")}
                 </div>
                 <div className="table-cell last">{transaction.category}</div>
+                <div className="delete">
+                  <MdDelete onClick={() => handleDelete(transaction._id)} />
+                </div>
               </div>
             );
           })}
@@ -434,43 +480,50 @@ const Home = (props) => {
 
   return (
     <>
-      <div className="container-1">
-        <div className="sidebar">
-          <Sidebar />
-        </div>
-        <div className="content">
-          <Navbar2
-            className="navbar-home"
-            n1="Dashboard"
-            n2="All-Transactions"
-            n3="Totals"
-            onSelected={handleNavbarSelectedItem}
-          />
-          <div className="main-content">
-            <div className="overview-container">
-              {selectedNumber == 1 ? (
-                <>
-                  <Dashboard username={username} transactions={transactions} />
-                  <Recents
-                    transactions={transactions}
-                    numFunc={setSelectedNumber}
-                  />
-                </>
-              ) : selectedNumber == 2 ? (
-                <Transactions transactions={transactions} />
-              ) : (
-                <>
-                  <Totals transactions={transactions} />
-                  <Recents
-                    transactions={transactions}
-                    numFunc={setSelectedNumber}
-                  />
-                </>
-              )}
+      {localStorage.getItem("username") ? (
+        <div className="container-1">
+          <div className="sidebar">
+            <Sidebar />
+          </div>
+          <div className="content">
+            <Navbar2
+              className="navbar-home"
+              n1="Dashboard"
+              n2="All-Transactions"
+              n3="Totals"
+              onSelected={handleNavbarSelectedItem}
+            />
+            <div className="main-content">
+              <div className="overview-container">
+                {selectedNumber == 1 ? (
+                  <>
+                    <Dashboard
+                      username={username}
+                      transactions={transactions}
+                    />
+                    <Recents
+                      transactions={transactions}
+                      numFunc={setSelectedNumber}
+                    />
+                  </>
+                ) : selectedNumber == 2 ? (
+                  <Transactions transactions={transactions} />
+                ) : (
+                  <>
+                    <Totals transactions={transactions} />
+                    <Recents
+                      transactions={transactions}
+                      numFunc={setSelectedNumber}
+                    />
+                  </>
+                )}
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      ) : (
+        <Navigate to="/" replace />
+      )}
     </>
   );
 };

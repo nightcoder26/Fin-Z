@@ -120,3 +120,32 @@ body {
 .failed-text {
   color: #6748d6;
 }
+
+.settings-button {
+  border: none;
+  font-family: "Poppins";
+  padding: 0.5rem;
+  background-color: #6748d6;
+  color: #f8fbfd;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  border-radius: 0.3rem;
+}
+
+.settings-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 5rem;
+  margin-left: 5rem;
+}
+
+.delete-button {
+  background-color: red;
+}
+
+.settings-content input {
+  padding: 0.4rem;
+  border-radius: 0.5rem;
+  border: #ccc solid 0.1rem;
+}
