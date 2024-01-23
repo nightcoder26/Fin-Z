@@ -16,7 +16,7 @@ function App() {
   const [transactions, setTransactions] = useState([]);
   useEffect(() => {
     try {
-      fetch(`http://localhost:4000/api/transactions/${userId}`, {
+      fetch(`https://fin-z-backend-3.vercel.app/api/transactions/${userId}`, {
         method: "GET",
       })
         .then((response) => {
