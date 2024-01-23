@@ -10,12 +10,15 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "cors": "^2.8.5",
     "jquery-ui": "^1.13.2",
+    "moment-timezone": "^0.5.44",
     "mongoose": "^8.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^5.0.1",
-    "react-router-dom": "^6.21.0"
+    "react-router-dom": "^6.21.3",
+    "recharts": "^2.10.4"
   },
   "devDependencies": {
     "@types/react": "^18.2.43",
