@@ -17,6 +17,7 @@ const Settings = ({ userId }) => {
         `https://fin-z-backend-3.vercel.app/api/users/${userId}`,
         {
           method: "DELETE",
+          credentials: "include",
         }
       );
 
@@ -49,6 +50,7 @@ const Settings = ({ userId }) => {
         `https://fin-z-backend-3.vercel.app/api/users/${userId}/username`,
         {
           method: "PATCH",
+          credentials: "include",
           headers: {
             "Content-Type": "application/json",
           },
@@ -75,6 +77,7 @@ const Settings = ({ userId }) => {
         `https://fin-z-backend-3.vercel.app/api/users/${userId}/password`,
         {
           method: "PATCH",
+          credentials: "include",
           headers: {
             "Content-Type": "application/json",
           },
