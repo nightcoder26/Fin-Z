@@ -21,6 +21,7 @@ const SignUp = () => {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({ username, password }),
+          mode: "no-cors",
         }
       );
 
