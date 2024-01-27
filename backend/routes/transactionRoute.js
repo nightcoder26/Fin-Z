@@ -1,5 +1,7 @@
 const express = require("express");
+const cors = require("cors");
 const router = express.Router();
+router.use(cors());
 const { Transaction } = require("../models/transactionModel.js");
 const { User } = require("../models/userModel.js");
 router.use(express.json());
