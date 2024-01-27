@@ -17,7 +17,6 @@ const Settings = ({ userId }) => {
         `https://fin-z-backend-3.vercel.app/api/users/${userId}`,
         {
           method: "DELETE",
-          credentials: "include",
         }
       );
 
