@@ -201,7 +201,6 @@ const Transactions = (props) => {
         `https://fin-z-backend-3.vercel.app/api/transactions/${id}`,
         {
           method: "DELETE",
-          credentials: "include",
         }
       );
 

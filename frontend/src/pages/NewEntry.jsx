@@ -115,7 +115,6 @@ const NewEntry = ({ userId }) => {
           headers: {
             "Content-Type": "application/json",
           },
-          credentials: "include",
           body: JSON.stringify(formData),
         }
       );
