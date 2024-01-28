@@ -18,7 +18,8 @@ const Settings = ({ userId }) => {
         {
           method: "DELETE",
           headers: {
-            "Allow-Cross-Origin-Access-Control": "*",
+            "Allow-Cross-Origin-Access-Control":
+              "https://fin-z-backend-3.vercel.app",
           },
         }
       );
@@ -55,7 +56,8 @@ const Settings = ({ userId }) => {
           credentials: "include",
           headers: {
             "Content-Type": "application/json",
-            "Allow-Cross-Origin-Access-Control": "*",
+            "Allow-Cross-Origin-Access-Control":
+              "https://fin-z-backend-3.vercel.app",
           },
           body: JSON.stringify({ newUsername }),
         }
@@ -83,7 +85,8 @@ const Settings = ({ userId }) => {
           credentials: "include",
           headers: {
             "Content-Type": "application/json",
-            "Allow-Cross-Origin-Access-Control": "*",
+            "Allow-Cross-Origin-Access-Control":
+              "https://fin-z-backend-3.vercel.app",
           },
           body: JSON.stringify({ newPassword }),
         }

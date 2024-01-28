@@ -20,7 +20,7 @@ function App() {
         fetch(`https://fin-z-backend-3.vercel.app/api/transactions/${userId}`, {
           method: "GET",
           headers: {
-            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Origin": "https://fin-z-backend-3.vercel.app",
           },
         })
           .then((response) => {

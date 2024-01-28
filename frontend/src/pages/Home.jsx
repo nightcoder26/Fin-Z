@@ -202,7 +202,8 @@ const Transactions = (props) => {
         {
           method: "DELETE",
           headers: {
-            "Allow-Cross-Origin-Access-Control": "*",
+            "Allow-Cross-Origin-Access-Control":
+              "https://fin-z-backend-3.vercel.app",
           },
         }
       );
