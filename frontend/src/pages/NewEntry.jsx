@@ -114,9 +114,8 @@ const NewEntry = ({ userId }) => {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
-            "Allow-Cross-Origin-Access-Control": "*",
           },
-
+          credentials: "include",
           body: JSON.stringify(formData),
         }
       );

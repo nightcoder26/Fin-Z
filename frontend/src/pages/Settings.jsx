@@ -83,7 +83,6 @@ const Settings = ({ userId }) => {
           credentials: "include",
           headers: {
             "Content-Type": "application/json",
-            "Allow-Cross-Origin-Access-Control": "*",
           },
           body: JSON.stringify({ newPassword }),
         }
