@@ -1,0 +1,11 @@
+{
+  "dependencies": {
+    "cors": "^2.8.5",
+    "jquery-ui": "^1.13.2",
+    "moment-timezone": "^0.5.43",
+    "mongoose": "^8.0.0",
+    "react-icons": "^4.12.0",
+    "react-router-dom": "^5.3.4",
+    "recharts": "^2.10.3"
+  }
+}
