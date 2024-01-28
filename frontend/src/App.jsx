@@ -18,9 +18,7 @@ function App() {
     try {
       fetch(`https://fin-z-backend-3.vercel.app/api/transactions/${userId}`, {
         method: "GET",
-        headers: {
-          "Access-Control-Allow-Origin": "*",
-        },
+        credentials: "include",
       })
         .then((response) => {
           if (!response.ok) {
