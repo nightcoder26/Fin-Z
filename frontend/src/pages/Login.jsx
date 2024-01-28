@@ -17,8 +17,7 @@ const Login = () => {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
-            "Allow-Cross-Origin-Access-Control":
-              "https://fin-z-backend-3.vercel.app",
+            "Allow-Cross-Origin-Access-Control": "*",
           },
 
           body: JSON.stringify({ username, password }),
