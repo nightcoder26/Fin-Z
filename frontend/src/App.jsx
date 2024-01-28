@@ -14,31 +14,34 @@ function App() {
   const userId = localStorage.getItem("userId");
   console.log(userId);
   const [transactions, setTransactions] = useState([]);
-  useEffect(() => {
-    try {
-      fetch(`https://fin-z-backend-3.vercel.app/api/transactions/${userId}`, {
-        method: "GET",
-        headers: {
-          "Access-Control-Allow-Origin": "*",
-        },
-      })
-        .then((response) => {
-          if (!response.ok) {
-            throw new Error("Network response was not ok");
-          }
-          return response.json();
+  if (userId) {
+    useEffect(() => {
+      try {
+        fetch(`https://fin-z-backend-3.vercel.app/api/transactions/${userId}`, {
+          method: "GET",
+          headers: {
+            "Access-Control-Allow-Origin": "*",
+          },
         })
-        .then((data) => {
-          setTransactions(data);
-          console.log(data);
-        })
-        .catch((error) => {
-          console.error("Error fetching data:", error);
-        });
-    } catch (error) {
-      console.error("Error fetching data:", error);
-    }
-  }, []);
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error("Network response was not ok");
+            }
+            return response.json();
+          })
+          .then((data) => {
+            setTransactions(data);
+            console.log(data);
+          })
+          .catch((error) => {
+            console.error("Error fetching data:", error);
+          });
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    }, []);
+  }
+
   return (
     <>
       <BrowserRouter>
