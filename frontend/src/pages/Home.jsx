@@ -198,7 +198,7 @@ const Transactions = (props) => {
     // };
     try {
       const response = await fetch(
-        `https://fin-z-backend-3.vercel.app/api/transactions/${id}`,
+        `http://localhost:4000/api/transactions/${id}`,
         {
           method: "DELETE",
         }

@@ -13,16 +13,13 @@ const SignUp = () => {
     console.log("signup button clicked");
     e.preventDefault();
     try {
-      const response = await fetch(
-        "https://fin-z-backend-3.vercel.app/api/users",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ username, password }),
-        }
-      );
+      const response = await fetch("http://localhost:4000/api/users", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ username, password }),
+      });
 
       const data = await response.json();
 
