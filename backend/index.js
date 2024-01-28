@@ -1,4 +1,4 @@
-const cors = require("cors");
+// const cors = require("cors");
 const { connectDatabase } = require("./db/connection.js");
 const userRoute = require("./routes/userRoute.js");
 const transactionRoute = require("./routes/transactionRoute.js");
@@ -7,7 +7,7 @@ const express = require("express");
 
 const app = express();
 app.use(express.json());
-app.use(cors());
+// app.use(cors());
 
 app.use("/api/users", userRoute);
 app.use("/api/transactions", transactionRoute);
