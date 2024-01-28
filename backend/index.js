@@ -11,7 +11,7 @@ app.use(express.json());
 app.use(
   cors({
     origin: "https://fin-z.vercel.app",
-    methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   })
 );
 
