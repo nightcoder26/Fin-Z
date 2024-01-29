@@ -83,6 +83,14 @@ body {
   border-radius: 0.3rem;
 }
 
+.submit:hover {
+  transform: scale(1.1);
+}
+.submit:active {
+  transform: scale(1);
+  background-color: #5237b3;
+}
+
 /* .form-2 {
   background-color: aqua;
 } */

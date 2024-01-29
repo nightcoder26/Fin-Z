@@ -11,8 +11,10 @@
   },
   "dependencies": {
     "jquery-ui": "^1.13.2",
+    "moment-timezone": "^0.5.44",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-icons": "^5.0.1",
     "react-router-dom": "^6.21.0"
   },
   "devDependencies": {
