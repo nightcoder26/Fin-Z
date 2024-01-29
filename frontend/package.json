@@ -12,6 +12,7 @@
   "dependencies": {
     "jquery-ui": "^1.13.2",
     "moment-timezone": "^0.5.44",
+    "mongoose": "^8.1.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^5.0.1",
