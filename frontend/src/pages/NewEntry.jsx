@@ -109,7 +109,7 @@ const NewEntry = ({ userId }) => {
     e.preventDefault();
     try {
       const response = await fetch(
-        `https://fin-z-api.vercel.app/api/transactions/${userId}`,
+        `http://localhost:4000/api/transactions/${userId}`,
         {
           method: "POST",
           headers: {
