@@ -11,10 +11,10 @@ app.use(
   cors({
     origin: "http://localhost:5173",
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-    credentials: true,
+    // credentials: true,
     AccessControlAllowOrigin: "http://localhost:5173",
-    AccessControlAllowHeaders: "Content-Type",
-    AccessControlAllowMethods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    // AccessControlAllowHeaders: "Content-Type",
+    // AccessControlAllowMethods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   })
 );
 

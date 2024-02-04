@@ -14,7 +14,7 @@ const Settings = ({ userId }) => {
   const handleDeleteAccount = async () => {
     try {
       const response = await fetch(
-        `http://localhost:4000/api/users/${userId}`,
+        `https://localhost:4000/api/users/${userId}`,
         {
           method: "DELETE",
         }
@@ -46,7 +46,7 @@ const Settings = ({ userId }) => {
   const handleUsernameChange = async () => {
     try {
       const response = await fetch(
-        `http://localhost:4000/api/users/${userId}/username`,
+        `https://localhost:4000/api/users/${userId}/username`,
         {
           method: "PATCH",
           headers: {
@@ -72,7 +72,7 @@ const Settings = ({ userId }) => {
   const handlePasswordChange = async () => {
     try {
       const response = await fetch(
-        `http://localhost:4000/api/users/${userId}/password`,
+        `https://localhost:4000/api/users/${userId}/password`,
         {
           method: "PATCH",
           headers: {

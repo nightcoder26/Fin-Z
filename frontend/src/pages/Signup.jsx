@@ -13,7 +13,7 @@ const SignUp = () => {
     console.log("signup button clicked");
     e.preventDefault();
     try {
-      const response = await fetch("http://localhost:4000/api/users", {
+      const response = await fetch("https://localhost:4000/api/users", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
