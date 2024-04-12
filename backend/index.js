@@ -7,16 +7,8 @@ const PORT = 4000;
 
 const app = express();
 app.use(express.json());
-app.use(
-  cors({
-    origin: "http://localhost:5173",
-    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-    // credentials: true,
-    AccessControlAllowOrigin: "http://localhost:5173",
-    // AccessControlAllowHeaders: "Content-Type",
-    // AccessControlAllowMethods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-  })
-);
+app.use(cors());
+cors({ origin: "http://localhost:5173" });
 
 app.use("/api/users", userRoute);
 app.use("/api/transactions", transactionRoute);
