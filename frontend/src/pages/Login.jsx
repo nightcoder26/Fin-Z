@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { Link, Navigate } from "react-router-dom";
 import { FaUser, FaLock } from "react-icons/fa";
+import { proxy } from "../../utils/proxy";
 import "../styles/Signup.css";
 const Login = () => {
   const [username, setUsername] = useState("");
@@ -11,7 +12,7 @@ const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("https://localhost:4000/api/users/login", {
+      const response = await fetch(`${proxy}/api/users/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
