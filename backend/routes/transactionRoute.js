@@ -4,9 +4,8 @@ const { Transaction } = require("../models/transactionModel.js");
 const { User } = require("../models/userModel.js");
 router.use(express.json());
 router.get("/", async (req, res) => {
-  res.send("Welcome to the transaction route");
+   res.send("Welcome to the transaction route");
 });
-// POST a new transaction for a specific user
 router.post("/:userId", async (req, res) => {
   try {
     const { amount, date, type, description, category, title } = req.body;
