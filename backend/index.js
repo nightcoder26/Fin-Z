@@ -12,13 +12,21 @@ mongoose.connect("mongodb+srv://b44068845:oQCopdn8H5xPQsBx@cluster0.ba6x5e3.mong
     .then(() => console.log('Connected to MongoDB2'))
     .catch((err) => console.log(err));
 
-
-const corsOptions = {
-  origin: ["https://fin-z-app.vercel.app", 'http://localhost:5173'],
-  credentials: true
-};
-
-app.use(cors(corsOptions));
+    const corsOptions = {
+      origin: ["https://fin-z-app.vercel.app", 'http://localhost:5173'],
+      allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With'],
+      methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+      credentials: true
+    };
+    
+    app.use(cors(corsOptions));
+    
+    app.use((req, res, next) => {
+        res.setHeader('Access-Control-Allow-Origin', "https://fin-z-app.vercel.app"); 
+        res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+        res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+        next();
+    });
 
 
 app.use("/api/users", userRoute);
