@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { proxy } from "../../utils/proxy";
+import { proxy } from "../../utils/proxy.js";
 
 import {
   LineChart,

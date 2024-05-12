@@ -1,7 +1,7 @@
 import { ReactDOM } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { proxy } from "";
+import { proxy } from "../utils/proxy";
 
 import Home from "./pages/Home.jsx";
 import NewEntry from "./pages/NewEntry.jsx";
@@ -17,7 +17,7 @@ function App() {
   const [transactions, setTransactions] = useState([]);
   useEffect(() => {
     try {
-      fetch(`https://localhost:4000/api/transactions/${userId}`, {
+      fetch(`${proxy}/api/transactions/${userId}`, {
         method: "GET",
       })
         .then((response) => {
