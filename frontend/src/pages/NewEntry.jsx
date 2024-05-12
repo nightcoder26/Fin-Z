@@ -2,6 +2,8 @@ import React from "react";
 import Navbar2 from "../components/Navbar2.jsx";
 import Sidebar from "../components/Sidebar.jsx";
 import "../styles/NewEntry.css";
+import { proxy } from "../../utils/proxy";
+
 import { useState, useEffect } from "react";
 import { set } from "mongoose";
 const NewEntry = ({ userId }) => {
@@ -109,7 +111,7 @@ const NewEntry = ({ userId }) => {
     e.preventDefault();
     try {
       const response = await fetch(
-        `https://localhost:4000/api/transactions/${userId}`,
+        `${proxy}/api/transactions/${userId}`,
         {
           method: "POST",
           headers: {

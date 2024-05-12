@@ -1,6 +1,7 @@
 import { ReactDOM } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { proxy } from "";
 
 import Home from "./pages/Home.jsx";
 import NewEntry from "./pages/NewEntry.jsx";

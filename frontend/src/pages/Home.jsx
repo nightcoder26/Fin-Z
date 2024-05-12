@@ -1,5 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import { proxy } from "../../utils/proxy";
+
 import {
   LineChart,
   Line,
@@ -198,7 +200,7 @@ const Transactions = (props) => {
     // };
     try {
       const response = await fetch(
-        `https://localhost:4000/api/transactions/${id}`,
+        `${proxy}/api/transactions/${id}`,
         {
           method: "DELETE",
         }

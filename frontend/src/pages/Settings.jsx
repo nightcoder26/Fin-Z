@@ -2,6 +2,8 @@ import React from "react";
 import Navbar2 from "../components/Navbar2.jsx";
 import Sidebar from "../components/Sidebar.jsx";
 import "../styles/NewEntry.css";
+import { proxy } from "../../utils/proxy";
+
 import { useNavigate } from "react-router-dom";
 
 import { useState } from "react";
@@ -14,7 +16,7 @@ const Settings = ({ userId }) => {
   const handleDeleteAccount = async () => {
     try {
       const response = await fetch(
-        `https://localhost:4000/api/users/${userId}`,
+        `${proxy}/api/users/${userId}`,
         {
           method: "DELETE",
         }
@@ -46,7 +48,7 @@ const Settings = ({ userId }) => {
   const handleUsernameChange = async () => {
     try {
       const response = await fetch(
-        `https://localhost:4000/api/users/${userId}/username`,
+        `${proxy}/api/users/${userId}/username`,
         {
           method: "PATCH",
           headers: {
@@ -72,7 +74,7 @@ const Settings = ({ userId }) => {
   const handlePasswordChange = async () => {
     try {
       const response = await fetch(
-        `https://localhost:4000/api/users/${userId}/password`,
+        `${proxy}/api/users/${userId}/password`,
         {
           method: "PATCH",
           headers: {
