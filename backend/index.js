@@ -14,7 +14,7 @@ mongoose.connect("mongodb+srv://b44068845:oQCopdn8H5xPQsBx@cluster0.ba6x5e3.mong
 
 
 const corsOptions = {
-  origin: ["https://fin-z.vercel.app", 'http://localhost:5173'],
+  origin: ["https://fin-z.vercel.app/", 'http://localhost:5173'],
   credentials: true
 };
 
