@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { FaUser, FaLock } from "react-icons/fa";
 import { Navigate } from "react-router-dom";
+import { proxy } from "../../utils/proxy";
 import "../styles/Signup.css";
 const SignUp = () => {
   const [username, setUsername] = useState("");
@@ -13,7 +14,7 @@ const SignUp = () => {
     console.log("signup button clicked");
     e.preventDefault();
     try {
-      const response = await fetch("https://localhost:4000/api/users", {
+      const response = await fetch(`${proxy}/api/users`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
