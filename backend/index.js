@@ -13,7 +13,7 @@ mongoose.connect("mongodb+srv://b44068845:oQCopdn8H5xPQsBx@cluster0.ba6x5e3.mong
     .catch((err) => console.log(err));
 
     const corsOptions = {
-      origin: ["https://fin-z-app.vercel.app/", 'http://localhost:5173'],
+      origin: ["https://fin-z-app.vercel.app", 'http://localhost:5173'],
       allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With'],
       methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
       credentials: true
