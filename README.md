@@ -155,7 +155,7 @@ For updates, events, and highlights from the Milestone Club, follow us on [Insta
   <a href="mailto:milestone.club@vitap.ac.in">
     <img src="https://skillicons.dev/icons?i=gmail" />
   </a>
-  <a href="[https://www.instagram.com/milestone_club_vitap/](https://www.linkedin.com/company/the-milestone-club-vit-ap/mycompany/)">
+  <a href="https://www.linkedin.com/company/the-milestone-club-vit-ap/mycompany/">
     <img src="https://skillicons.dev/icons?i=linkedin" />
   </a>
 </p>
