@@ -1,4 +1,5 @@
 ![BANNER_1600](https://github.com/nightcoder26/Fin-Z/assets/77844703/06c9a05b-77fa-4d1c-ad12-223042f98069)
+
 <h1 align="center"> <img src="https://github.com/nightcoder26/Fin-Z/assets/77844703/1f86a237-0b42-4eca-9311-18f5aedfc45a" width="35" />Fin-Z 
 </h1>
 <p align="center">A flexible and free-to-use finance tracker made with React, Nodejs, Express.js <br/> and mongoDB, helping you manage your finances smoothly</p>
@@ -7,7 +8,11 @@
 <p>Our finance tracker web app is designed to provide a user-friendly platform for managing personal finances efficiently. It offers multiple pages, including an overview dashboard, category-wise analysis, and period-wise transaction logs (daily, weekly, monthly). Users can easily add new entries, create accounts, and manage their financial data securely through MongoDB Atlas, ensuring cloud-based data storage and accessibility.
 
 </p>
-<img src="https://github.com/nightcoder26/Fin-Z/assets/77844703/eb1a2a7c-2039-4b0f-abc4-5241c571e738" />
+<h3>Fin-z working recording</h3>
+<video width="320" height="240" controls>
+  <source src="Recordings/FIN-Z-RECORDING.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
 
 <!--
 <h4>Key Features</h4>
@@ -25,54 +30,58 @@ Comprehensive Financial Analysis: Detailed breakdowns of spending categories and
 <h4>Set up locally</h4>
 <p>
 
-
 **Prerequisites:**
 Ensure you have Node.js and npm installed on your machine. You can download it from [Node.js official website](https://nodejs.org/).
 
 **Installation Steps:**
 
 1. **Clone the Git Repository:**
-    ```bash
-    git clone https://github.com/nightcoder26/Fin-Z.git
-    ```
-    Clone the repository containing the finance tracker project.
+
+   ```bash
+   git clone https://github.com/nightcoder26/Fin-Z.git
+   ```
+
+   Clone the repository containing the finance tracker project.
 
 2. **Navigate to the Project Directory:**
-    ```bash
-    cd Fin-Z
-    ```
+
+   ```bash
+   cd Fin-Z
+   ```
 
 3. **Install Dependencies:**
-    ```bash
-    npm install
-    ```
-    This command installs all the necessary dependencies required for the Vite project.<br/>
-    
+   ```bash
+   npm install
+   ```
+   This command installs all the necessary dependencies required for the Vite project.<br/>
+
 **Running the Project:**
 
 1. **Run Frontend (React):**
-    - Navigate to the frontend directory:
-        ```bash
-        cd frontend
-        ```
-    - Start the development server:
-        ```bash
-        npm run dev
-        ```
-    - Access the frontend at the specified port for e.g.: `http://localhost:5136`.
+
+   - Navigate to the frontend directory:
+     ```bash
+     cd frontend
+     ```
+   - Start the development server:
+     ```bash
+     npm run dev
+     ```
+   - Access the frontend at the specified port for e.g.: `http://localhost:5136`.
 
 2. **Run Backend (Node.js & Express):**
-    - Navigate to the backend directory:
-        ```bash
-        cd backend
-        ```
-    - Start the server using nodemon:
-        ```bash
-        nodemon index
-        ```
-    - The backend server will run on the port 4000 by default i.e., `http://localhost:4000`.
+   - Navigate to the backend directory:
+     ```bash
+     cd backend
+     ```
+   - Start the server using nodemon:
+     ```bash
+     nodemon index
+     ```
+   - The backend server will run on the port 4000 by default i.e., `http://localhost:4000`.
 
 Ensure both the frontend and backend servers are running simultaneously for the finance tracker web app to work properly.
+
 </p>
 
 <h3>Main Stack</h3>
@@ -97,11 +106,6 @@ Ensure both the frontend and backend servers are running simultaneously for the 
 
 <h3>Other dependencies</h3>
 
-
-
-
-
-
 <a href="https://react-icons.github.io/react-icons/">
   <img src="https://github.com/nightcoder26/Fin-Z/assets/77844703/10e5bb18-aa40-4cef-9c4b-6cd3c547b552" width="50px"/>
 </a>
@@ -121,15 +125,13 @@ Ensure both the frontend and backend servers are running simultaneously for the 
   <img src="https://github.com/nightcoder26/Fin-Z/assets/77844703/4feb5714-5bbe-4a1a-b8b7-ca3537aa709b" width="50px"/>
 </a>
 
-
-
 ## Project Background
 
 This project was initiated and developed by members of the Milestone Club at VIT AP University. Our club is dedicated to fostering innovation, collaboration, and learning among students interested in technology and software development.
 
 ### About Milestone Club, VIT AP University
 
-The Milestone Club at VIT AP University is a student-driven organization aimed at providing a platform for students to explore and develop their skills in various technological domains. We focus on organizing  collaborative projects to enhance practical knowledge and encourage innovation.
+The Milestone Club at VIT AP University is a student-driven organization aimed at providing a platform for students to explore and develop their skills in various technological domains. We focus on organizing collaborative projects to enhance practical knowledge and encourage innovation.
 
 #### Project Contributors
 
@@ -139,21 +141,16 @@ We extend our gratitude to the contributors and members of the Milestone Club wh
 
 For updates, events, and highlights from the Milestone Club, follow us on [Instagram](https://www.instagram.com/milestone_club_vitap/).
 
-
 <h2> Our Contributors 💗</h2>
 
 <a href="https://github.com/nightcoder26/Fin-Z/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=nightcoder26/Fin-Z&max=400&columns=20" />
 </a>
 
-
 ## Contribution Guidelines
 
 Please read our [Contribution Guidelines](CONTRIBUTING.md) before contributing to this project.
 
 ## License
+
 This project is licensed under the [MIT License](LICENSE) - see the [LICENSE](LICENSE) file for details.
-
-
-
-
