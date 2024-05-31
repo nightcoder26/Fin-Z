@@ -88,7 +88,7 @@ Ensure both the frontend and backend servers are running simultaneously for the 
 
 <p>These are the main technologies used in this project:</p>
 
-<a href="https://reactjs.org/">
+<!--<a href="https://reactjs.org/">
   <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1280px-React-icon.svg.png" alt="React" width="70px" />
 </a>
 
@@ -103,6 +103,9 @@ Ensure both the frontend and backend servers are running simultaneously for the 
 <a href="https://expressjs.com/">
   <img src="https://expressjs.com/images/express-facebook-share.png" width="70px" />
 </a>
+-->
+[![My Skills](https://skillicons.dev/icons?i=react,nodejs,express,mongodb)](https://skillicons.dev)
+
 
 <h3>Other dependencies</h3>
 
