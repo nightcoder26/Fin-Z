@@ -8,11 +8,15 @@
 <p>Our finance tracker web app is designed to provide a user-friendly platform for managing personal finances efficiently. It offers multiple pages, including an overview dashboard, category-wise analysis, and period-wise transaction logs (daily, weekly, monthly). Users can easily add new entries, create accounts, and manage their financial data securely through MongoDB Atlas, ensuring cloud-based data storage and accessibility.
 
 </p>
-<h3>Fin-z working recording</h3>
-<video width="320" height="240" controls>
-  <source src="Recordings/FIN-Z-RECORDING.mp4" type="video/mp4">
-Your browser does not support the video tag.
-</video>
+<img src="https://github.com/nightcoder26/Fin-Z/assets/77844703/34d9a677-e1bf-499a-9759-8b7dc9aba037">
+
+
+
+
+https://github.com/nightcoder26/Fin-Z/assets/77844703/0759258e-5e06-43fe-9294-41a14caf5070
+
+
+
 
 <!--
 <h4>Key Features</h4>
