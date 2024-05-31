@@ -199,12 +199,9 @@ const Transactions = (props) => {
     //   }
     // };
     try {
-      const response = await fetch(
-        `${proxy}/api/transactions/${id}`,
-        {
-          method: "DELETE",
-        }
-      );
+      const response = await fetch(`${proxy}/api/transactions/${id}`, {
+        method: "DELETE",
+      });
 
       if (response.ok) {
         console.log("Transaction deleted successfully");

@@ -220,6 +220,17 @@ h2{
   padding: 1rem;
   cursor: pointer;
 }
+.table-cell-first {
+  flex: 1;
+  padding: 1rem;
+  cursor: pointer;
+}
+.table-cell-last {
+  flex: 1;
+  padding: 1rem;
+  cursor: pointer;
+  text-align: center;
+}
 
 .table-row:hover {
   /* background-color: #eef0f1; */
