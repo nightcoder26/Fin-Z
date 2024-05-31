@@ -88,7 +88,7 @@ Ensure both the frontend and backend servers are running simultaneously for the 
 
 <p>These are the main technologies used in this project:</p>
 
-<a href="https://reactjs.org/">
+<!--<a href="https://reactjs.org/">
   <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1280px-React-icon.svg.png" alt="React" width="70px" />
 </a>
 
@@ -103,6 +103,9 @@ Ensure both the frontend and backend servers are running simultaneously for the 
 <a href="https://expressjs.com/">
   <img src="https://expressjs.com/images/express-facebook-share.png" width="70px" />
 </a>
+-->
+[![My Skills](https://skillicons.dev/icons?i=react,nodejs,express,mongodb)](https://skillicons.dev)
+
 
 <h3>Other dependencies</h3>
 
@@ -141,6 +144,21 @@ We extend our gratitude to the contributors and members of the Milestone Club wh
 
 For updates, events, and highlights from the Milestone Club, follow us on [Instagram](https://www.instagram.com/milestone_club_vitap/).
 
+### Milestone Club socials
+<p>
+  <a href="https://www.instagram.com/milestone_club_vitap/">
+    <img src="https://skillicons.dev/icons?i=instagram" />
+  </a>
+  <a href="https://discord.gg/b7nDcDBA">
+    <img src="https://skillicons.dev/icons?i=discord" />
+  </a>
+  <a href="mailto:milestone.club@vitap.ac.in">
+    <img src="https://skillicons.dev/icons?i=gmail" />
+  </a>
+  <a href="https://www.linkedin.com/company/the-milestone-club-vit-ap/mycompany/">
+    <img src="https://skillicons.dev/icons?i=linkedin" />
+  </a>
+</p>
 <h2> Our Contributors 💗</h2>
 
 <a href="https://github.com/nightcoder26/Fin-Z/graphs/contributors">
