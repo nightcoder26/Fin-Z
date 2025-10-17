@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const userRoute = require("./api/userRoute.js");
 const transactionRoute = require("./api/transactionRoute.js");
 const express = require("express");
-const PORT = 4000;
+const PORT = process.env.PORT || 4000;
 const dotenv = require("dotenv");
 
 const app = express();
