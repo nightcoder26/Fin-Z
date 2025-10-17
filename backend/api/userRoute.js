@@ -11,7 +11,7 @@ router.get("/", async (req, res) => {
 router.post("/", async (req, res) => {
   try {
     const { username, password } = req.body;
-
+    //isme dekho
     const oldUser = await User.findOne({ username });
     if (oldUser) {
       return res.status(400).json({ message: "User already exists" });
@@ -32,6 +32,7 @@ router.post("/", async (req, res) => {
     ];
 
     const newUser = new User({ username, password });
+    //yha create hee use nhi kr rhe ye dekho
     newUser.expenseCategories = defaultExpenseCategories;
     newUser.incomeCategories = defaultIncomeCategories;
     await newUser.save();

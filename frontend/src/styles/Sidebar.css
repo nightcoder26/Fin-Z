@@ -124,3 +124,55 @@
   font-size: 2.5rem;
   color: #6748d6;
 }
+
+/* refresh button at the bottom of the sidebar */
+.sidebar-refresh {
+  position: absolute;
+  bottom: 1.2rem;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.refresh-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+  color: #333;
+}
+.refresh-btn:hover {
+  background: #f1f3f5;
+  transform: scale(1.03);
+}
+.refresh-btn svg {
+  font-size: 1.2rem;
+}
+
+/* simple tooltip */
+.refresh-btn .tooltip {
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.12s ease-in-out;
+  position: absolute;
+  bottom: 36px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.75);
+  color: white;
+  padding: 6px 8px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 40;
+}
+.refresh-btn:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+}

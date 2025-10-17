@@ -1,16 +1,19 @@
 const cors = require("cors");
 const mongoose = require("mongoose");
-const userRoute = require("./routes/userRoute.js");
-const transactionRoute = require("./routes/transactionRoute.js");
+const userRoute = require("./api/userRoute.js");
+const transactionRoute = require("./api/transactionRoute.js");
 const express = require("express");
 const PORT = 4000;
+const dotenv = require("dotenv");
 
 const app = express();
 app.use(express.json());
+dotenv.config();
+
 
 mongoose
   .connect(
-    "mongodb+srv://b44068845:oQCopdn8H5xPQsBx@cluster0.ba6x5e3.mongodb.net/finance_app_db?retryWrites=true&w=majority"
+    process.env.MONGODB_URI
   )
   .then(() => console.log("Connected to MongoDB2"))
   .catch((err) => console.log(err));

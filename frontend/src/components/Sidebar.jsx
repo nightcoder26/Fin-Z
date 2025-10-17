@@ -8,6 +8,7 @@ import pie from "../assets/PIE-LIST.png";
 import everything from "../assets/EVERYTHING-LIST.png";
 import settings from "../assets/SETTINGS.png";
 import { Link, useLocation } from "react-router-dom";
+import { FiRefreshCw } from "react-icons/fi";
 const Sidebar = () => {
   const [selectedItem, setSelectedItem] = useState(null);
   const location = useLocation();
@@ -31,6 +32,10 @@ const Sidebar = () => {
   const handleSidebarClick = (num) => {
     setSelectedItem(num);
   };
+  const handleRefresh = () => {
+    // simple refresh to re-fetch transactions in App.jsx
+    window.location.reload();
+  };
   return (
     <div>
       <div id="sidebar">
@@ -41,6 +46,17 @@ const Sidebar = () => {
         </div>
 
         <ul>
+          <div className="sidebar-refresh">
+            <button
+              className="refresh-btn"
+              onClick={handleRefresh}
+              aria-label="Refresh transactions"
+              title="refresh if u dont see ur transactions updating"
+            >
+              <FiRefreshCw />
+              <span className="tooltip">refresh if u dont see ur transactions updating</span>
+            </button>
+          </div>
           <li
             onClick={() => handleSidebarClick(1)}
             className={`list-items ${selectedItem === 1 ? " selected" : ""}}`}
