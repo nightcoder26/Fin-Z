@@ -34,7 +34,9 @@ const Sidebar = () => {
   };
   const handleRefresh = () => {
     // simple refresh to re-fetch transactions in App.jsx
-    window.location.reload();
+    // window.location.reload();
+    window.location.href = window.location.origin + window.location.pathname;
+
   };
   return (
     <div>
